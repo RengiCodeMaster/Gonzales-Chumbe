@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Manrope', sans-serif;
+    background-color: #ffffff;
+    color: #1e293b;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .font-serif-accent {
+    font-family: 'Libre Baskerville', serif;
+  }
+  
+  /* Legacy Gold Support */
+  .text-gold {
+    color: #64748b;
+  }
+  .bg-gold {
+    background-color: #64748b;
+  }
+  .border-gold {
+    border-color: #64748b;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 5px;
+  border: 2px solid #f1f5f9;
+}
