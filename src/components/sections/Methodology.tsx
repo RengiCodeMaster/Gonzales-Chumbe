@@ -41,7 +41,7 @@ export const Methodology: React.FC = () => {
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white/40 via-transparent to-transparent pointer-events-none"></div>
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16">
           <div>
             <Reveal width="100%">
               <span className="text-brand-primary font-bold tracking-widest uppercase text-xs mb-3 block">Nuestro Método</span>
@@ -54,7 +54,7 @@ export const Methodology: React.FC = () => {
             </Reveal>
           </div>
           <Reveal direction="left" delay={400}>
-            <p className="text-brand-secondary max-w-md mt-6 md:mt-0 text-right md:text-left">
+            <p className="text-brand-secondary max-w-md mt-6 md:mt-0 text-left md:text-right">
               Sin improvisaciones. Tenemos un plan claro para protegerlo desde el primer día.
             </p>
           </Reveal>

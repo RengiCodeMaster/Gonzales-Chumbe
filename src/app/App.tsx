@@ -69,27 +69,30 @@ function App() {
 
                             {/* COLUMNA 1: Imagen Principal (Anchor Visual) - Span 5 */}
                             <div className="lg:col-span-5 flex flex-col gap-6">
-                                <Reveal className="h-full" delay={300}>
-                                    <div className="relative h-[550px] w-full rounded-sm overflow-hidden group shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] border border-white">
-                                        {/* Imagen Principal */}
-                                        <img
-                                            src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                                            alt="Biblioteca Jurídica Antigua"
-                                            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 filter grayscale-[20%]"
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/90 via-transparent to-transparent opacity-90"></div>
+                                <div className="relative h-[550px] w-full rounded-sm overflow-hidden group shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-gray-200 bg-gray-100">
 
-                                        <div className="absolute bottom-0 left-0 p-8 w-full">
-                                            <div className="bg-white/90 backdrop-blur-md p-4 rounded-sm inline-block mb-4 shadow-lg">
-                                                <History size={24} className="text-brand-primary" />
-                                            </div>
-                                            <h3 className="text-2xl font-bold mb-2 font-serif-accent text-white">Nuestra Historia</h3>
-                                            <p className="text-gray-200 text-sm leading-relaxed border-l-2 border-white pl-4">
+                                    {/* Placeholder Icon (Centered) */}
+                                    <div className="absolute inset-0 flex items-center justify-center text-gray-300 group-hover:scale-105 transition-transform duration-700">
+                                        <Scale size={180} strokeWidth={0.5} />
+                                    </div>
+
+                                    {/* Content Overlay (Bottom) */}
+                                    <div className="absolute bottom-0 left-0 w-full p-8">
+
+                                        {/* Icon Box */}
+                                        <div className="bg-white shadow-md p-4 rounded-sm inline-block mb-4 border border-gray-100">
+                                            <History size={24} className="text-brand-primary" />
+                                        </div>
+
+                                        <h3 className="text-3xl font-bold mb-3 font-serif-accent text-brand-dark">Nuestra Historia</h3>
+
+                                        <div className="bg-white/80 backdrop-blur-sm p-4 rounded-r-sm border-l-4 border-brand-primary">
+                                            <p className="text-gray-700 text-sm leading-relaxed font-medium">
                                                 Desde 1994 caminando los pasillos de tribunales. Décadas de experiencia real, no de manual.
                                             </p>
                                         </div>
                                     </div>
-                                </Reveal>
+                                </div>
                             </div>
 
                             {/* COLUMNA 2: Contenido - Span 7 */}

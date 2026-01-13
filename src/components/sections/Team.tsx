@@ -35,6 +35,19 @@ export const Team: React.FC = () => {
 
             <div className="container mx-auto px-6 lg:px-12 relative z-10">
 
+                {/* Section Header */}
+                <div className="mb-16 text-center max-w-3xl mx-auto">
+                    <Reveal width="100%">
+                        <span className="text-brand-primary font-bold tracking-widest uppercase text-xs mb-3 block">Excelencia Profesional</span>
+                        <h2 className="text-4xl md:text-5xl font-bold text-brand-dark mb-6">
+                            Nuestro <span className="font-serif-accent text-brand-secondary">Equipo</span>
+                        </h2>
+                        <p className="text-gray-500 text-lg leading-relaxed">
+                            Un cuerpo de abogados penalistas elegidos por su trayectoria, ética y capacidad técnica para resolver conflictos de alta complejidad.
+                        </p>
+                    </Reveal>
+                </div>
+
                 <div className="mb-24 relative bg-white border border-gray-100 rounded-[2rem] p-8 md:p-12 lg:p-16 overflow-hidden shadow-2xl">
                     {/* Texture Overlay */}
                     <div className="absolute inset-0 opacity-30" style={{ backgroundImage: 'radial-gradient(#e2e8f0 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
