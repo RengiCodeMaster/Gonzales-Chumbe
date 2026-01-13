@@ -4,7 +4,6 @@
 
 @layer base {
   body {
-    font-family: 'Playfair Display', serif !important;
     background-color: #ffffff;
     color: #1e293b;
     overflow-x: hidden;
@@ -16,8 +15,7 @@
   h4,
   h5,
   h6 {
-    font-family: 'Playfair Display', serif !important;
-    font-style: normal !important;
+    font-family: 'Playfair Display', serif;
     /* Removed forced heavy weight to allow text-gray-500 etc to work */
     @apply font-bold tracking-tight;
   }

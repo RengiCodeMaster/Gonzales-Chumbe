@@ -61,7 +61,7 @@ const Counter: React.FC<CounterProps> = ({ end, duration = 2000, suffix = '', la
 
   return (
     <div ref={ref} className="text-center group p-6 border border-gray-200 rounded-lg bg-white hover:shadow-xl transition-all duration-500 relative z-10">
-      <div className="text-4xl md:text-6xl font-bold text-brand-primary mb-2 font-serif-accent tabular-nums">
+      <div className="text-4xl md:text-6xl font-extrabold font-sans text-brand-primary mb-2 tabular-nums">
         {count}{suffix}
       </div>
       <div className="h-0.5 w-12 bg-brand-gold/30 mx-auto mb-4 group-hover:w-20 group-hover:bg-brand-primary transition-all duration-500"></div>
@@ -73,19 +73,26 @@ const Counter: React.FC<CounterProps> = ({ end, duration = 2000, suffix = '', la
 export const Stats: React.FC = () => {
   return (
     <section className="py-20 bg-[#FAFAF9] relative border-b border-gray-200">
-      {/* Texture Overlay */}
-      <div className="absolute inset-0 opacity-[0.4] pointer-events-none" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E")` }}></div>
+
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          <Counter end={30} suffix="+" label="Años de Trayectoria" />
-          <Counter end={2500} suffix="+" label="Casos Gestionados" />
-          <Counter end={98} suffix="%" label="Tasa de Éxito" />
-          <Counter end={24} suffix="/7" label="Disponibilidad" />
+          <Reveal width="100%" delay={0}>
+            <Counter end={30} suffix="+" label="Años de Trayectoria" />
+          </Reveal>
+          <Reveal width="100%" delay={100}>
+            <Counter end={2500} suffix="+" label="Casos Gestionados" />
+          </Reveal>
+          <Reveal width="100%" delay={200}>
+            <Counter end={98} suffix="%" label="Tasa de Éxito" />
+          </Reveal>
+          <Reveal width="100%" delay={300}>
+            <Counter end={24} suffix="/7" label="Disponibilidad" />
+          </Reveal>
         </div>
 
         <Reveal width="100%" delay={500}>
-          <p className="text-center text-gray-400 text-xs mt-12 max-w-2xl mx-auto ">
+          <p className="text-center text-gray-500 text-sm mt-12 max-w-3xl mx-auto leading-relaxed">
             * Las estadísticas reflejan nuestra trayectoria histórica. En derecho penal, ningún resultado puede garantizarse al 100%, pero garantizamos el 100% de nuestro esfuerzo estratégico.
           </p>
         </Reveal>

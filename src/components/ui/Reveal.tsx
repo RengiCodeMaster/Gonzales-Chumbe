@@ -25,11 +25,8 @@ export const Reveal: React.FC<RevealProps> = ({
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
-                // Only trigger ONCE when it enters screen to avoid "re-playing" lag when scrolling up/down
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                    observer.unobserve(entry.target); // Stop observing once visible
-                }
+                // Update visibility based on intersection state to allow repeat animations
+                setIsVisible(entry.isIntersecting);
             },
             { threshold }
         );
@@ -58,7 +55,7 @@ export const Reveal: React.FC<RevealProps> = ({
     return (
         <div
             ref={ref}
-            className={`transition-all ease-out transform ${getTransformClass()} ${className}`}
+            className={`transition-all will-change-transform ease-out transform ${getTransformClass()} ${className}`}
             style={{
                 transitionDuration: `${duration}ms`,
                 transitionDelay: `${delay}ms`,

@@ -26,8 +26,7 @@ export const FAQ: React.FC = () => {
 
     return (
         <section className="pt-24 pb-24 bg-[#F5F5F4] border-t border-gray-200 relative">
-            {/* Texture Overlay */}
-            <div className="absolute inset-0 opacity-[0.5] pointer-events-none" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E")` }}></div>
+
             <div className="container mx-auto px-6 lg:px-12 flex flex-col lg:flex-row gap-16">
 
                 {/* Left: Title & Info */}
@@ -60,29 +59,27 @@ export const FAQ: React.FC = () => {
                 <div className="lg:w-2/3">
                     <div className="space-y-4">
                         {faqs.map((faq, idx) => (
-                            <Reveal key={idx} delay={idx * 100} width="100%">
-                                <div className={`border rounded-lg transition-all duration-300 ${openIndex === idx ? 'border-brand-gold bg-brand-surfaceAlt shadow-lg' : 'border-gray-200 bg-white hover:border-gray-300'}`}>
-                                    <button
-                                        className="w-full flex justify-between items-center p-6 text-left"
-                                        onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                                    >
-                                        <span className={`font-bold text-lg ${openIndex === idx ? 'text-brand-dark' : 'text-gray-600'}`}>
-                                            {faq.question}
-                                        </span>
-                                        <div className={`ml-4 p-1 rounded-full transition-colors ${openIndex === idx ? 'bg-brand-gold text-white' : 'bg-gray-100 text-gray-400'}`}>
-                                            {openIndex === idx ? <Minus size={16} /> : <Plus size={16} />}
-                                        </div>
-                                    </button>
+                            <div key={idx} className={`border rounded-lg transition-all duration-300 ${openIndex === idx ? 'border-brand-gold bg-brand-surfaceAlt shadow-lg' : 'border-gray-200 bg-white hover:border-gray-300'}`}>
+                                <button
+                                    className="w-full flex justify-between items-center p-6 text-left"
+                                    onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+                                >
+                                    <span className={`font-bold text-lg ${openIndex === idx ? 'text-brand-dark' : 'text-gray-600'}`}>
+                                        {faq.question}
+                                    </span>
+                                    <div className={`ml-4 p-1 rounded-full transition-colors ${openIndex === idx ? 'bg-brand-gold text-white' : 'bg-gray-100 text-gray-400'}`}>
+                                        {openIndex === idx ? <Minus size={16} /> : <Plus size={16} />}
+                                    </div>
+                                </button>
 
-                                    <div
-                                        className={`overflow-hidden transition-all duration-200 ease-out ${openIndex === idx ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'}`}
-                                    >
-                                        <p className="p-6 pt-0 text-gray-500 leading-relaxed border-t border-brand-gold/10">
+                                {openIndex === idx && (
+                                    <div className="overflow-hidden border-t border-brand-gold/10 animate-in slide-in-from-top-2 fade-in duration-200">
+                                        <p className="p-6 pt-4 text-gray-500 leading-relaxed">
                                             {faq.answer}
                                         </p>
                                     </div>
-                                </div>
-                            </Reveal>
+                                )}
+                            </div>
                         ))}
                     </div>
                 </div>

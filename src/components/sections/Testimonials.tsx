@@ -1,5 +1,6 @@
-import React from 'react';
-import { Quote, Star } from 'lucide-react';
+// Add imports
+import React, { useState, useEffect } from 'react';
+import { Quote, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Reveal } from '../ui/Reveal';
 
 const testimonials = [
@@ -20,26 +21,60 @@ const testimonials = [
     author: "María E.",
     type: "Urgencia / Detención",
     stars: 5
+  },
+  {
+    text: "Lograron mi absolución en un caso donde todo parecía perdido. Su estrategia en el juicio oral fue impecable, desbaratando cada prueba de la fiscalía.",
+    author: "Roberto C.",
+    type: "Derecho Penal",
+    stars: 5
   }
 ];
 
 export const Testimonials: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Auto-advance
+  useEffect(() => {
+    const timer = setInterval(() => {
+      handleNext();
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [currentIndex]);
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
+  };
+
   return (
-    <section className="py-24 bg-brand-surfaceAlt relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=2000"
+          alt="Background"
+          className="w-full h-full object-cover opacity-10"
+        />
+        <div className="absolute inset-0 bg-[#F5F5F4]/90"></div>
+      </div>
+
       {/* Decoration */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold/5 rounded-full blur-3xl -mr-12 -mt-12 pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-primary/5 rounded-full blur-3xl -ml-12 -mb-12 pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold/10 rounded-full blur-3xl -mr-12 -mt-12 pointer-events-none z-10"></div>
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-primary/10 rounded-full blur-3xl -ml-12 -mb-12 pointer-events-none z-10"></div>
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
 
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-12">
           <Reveal width="100%">
             <span className="text-brand-primary font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Testimonios</span>
           </Reveal>
           <Reveal delay={200} width="100%">
             <h2 className="text-3xl md:text-5xl font-bold text-brand-dark mb-6">
               La voz de nuestros <br />
-              <span className="font-serif-accent  text-brand-gold">defendidos.</span>
+              <span className="font-serif-accent text-brand-gold">defendidos.</span>
             </h2>
           </Reveal>
           <Reveal delay={300} width="100%">
@@ -49,30 +84,61 @@ export const Testimonials: React.FC = () => {
           </Reveal>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((item, idx) => (
-            <Reveal key={idx} delay={idx * 200} className="h-full">
-              <div className="bg-white p-8 rounded-lg shadow-xl border-t-4 border-brand-gold h-full flex flex-col relative group hover:-translate-y-2 transition-transform duration-300">
-                <Quote className="text-brand-primary/10 absolute top-4 right-4 w-12 h-12 group-hover:text-brand-gold/20 transition-colors" />
+        {/* Carousel Container */}
+        <Reveal width="100%" delay={400}>
+          <div className="max-w-4xl mx-auto relative bg-white rounded-2xl shadow-xl border border-gray-100 p-8 md:p-12 min-h-[300px] flex flex-col justify-center">
 
-                <div className="flex gap-1 mb-6">
-                  {[...Array(item.stars)].map((_, i) => (
-                    <Star key={i} size={14} className="fill-brand-gold text-brand-gold" />
-                  ))}
-                </div>
+            {/* Navigation Buttons */}
+            <button
+              onClick={handlePrev}
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-gray-50 hover:bg-brand-primary hover:text-white flex items-center justify-center transition-all duration-300 z-20 group"
+              aria-label="Anterior"
+            >
+              <ChevronLeft size={20} className="text-gray-400 group-hover:text-white" />
+            </button>
+            <button
+              onClick={handleNext}
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-gray-50 hover:bg-brand-primary hover:text-white flex items-center justify-center transition-all duration-300 z-20 group"
+              aria-label="Siguiente"
+            >
+              <ChevronRight size={20} className="text-gray-400 group-hover:text-white" />
+            </button>
 
-                <p className="text-brand-dark leading-relaxed  mb-6 flex-grow font-serif-accent text-lg">
-                  "{item.text}"
-                </p>
+            {/* Quote Icon Background */}
+            <Quote className="text-brand-gold/10 absolute top-8 left-8 w-24 h-24 pointer-events-none" />
 
-                <div className="border-t border-gray-100 pt-4 mt-auto">
-                  <p className="font-bold text-brand-dark text-sm">{item.author}</p>
-                  <p className="text-xs text-brand-secondary uppercase tracking-wider font-bold">{item.type}</p>
-                </div>
+            {/* Slide Content */}
+            <div className="relative z-10 text-center px-8 md:px-16 animate-fade-in key={currentIndex}">
+              <div className="flex justify-center gap-1 mb-6">
+                {[...Array(testimonials[currentIndex].stars)].map((_, i) => (
+                  <Star key={i} size={18} className="fill-brand-gold text-brand-gold" />
+                ))}
               </div>
-            </Reveal>
-          ))}
-        </div>
+
+              <p className="text-xl md:text-2xl text-brand-dark leading-relaxed font-serif-accent italic mb-8">
+                "{testimonials[currentIndex].text}"
+              </p>
+
+              <div className="border-t border-gray-100 pt-6 inline-block min-w-[200px]">
+                <p className="font-bold text-brand-dark text-base mb-1">{testimonials[currentIndex].author}</p>
+                <p className="text-xs text-brand-secondary uppercase tracking-wider font-bold">{testimonials[currentIndex].type}</p>
+              </div>
+            </div>
+
+            {/* Dots */}
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+              {testimonials.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentIndex(idx)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${idx === currentIndex ? 'bg-brand-primary w-6' : 'bg-gray-200 hover:bg-gray-300'}`}
+                  aria-label={`Ir al testimonio ${idx + 1}`}
+                />
+              ))}
+            </div>
+
+          </div>
+        </Reveal>
 
       </div>
     </section>

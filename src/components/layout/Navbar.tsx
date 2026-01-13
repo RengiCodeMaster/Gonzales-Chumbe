@@ -16,14 +16,22 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenService, onCloseService })
   const timeoutRef = useRef<any>(null);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 20);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    // Check immediately on mount in case page is reloaded with scroll
+    // Check immediately on mount
     handleScroll();
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

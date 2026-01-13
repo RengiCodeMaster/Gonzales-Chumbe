@@ -19,9 +19,17 @@ export const Services: React.FC<ServicesProps> = ({ onOpenService }) => {
     };
 
     return (
-        <section id={SectionId.SERVICES} className="py-32 bg-[#F5F5F4] relative border-t border-gray-200">
-            {/* Texture Overlay */}
-            <div className="absolute inset-0 opacity-[0.5] pointer-events-none" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E")` }}></div>
+        <section id={SectionId.SERVICES} className="py-32 relative border-t border-gray-200">
+            {/* Background Image with Overlay */}
+            <div className="absolute inset-0 z-0">
+                <img
+                    src="https://images.unsplash.com/photo-1505664194779-8beaceb930b5?auto=format&fit=crop&q=80&w=2000"
+                    alt="Legal Architecture"
+                    className="w-full h-full object-cover opacity-10"
+                />
+                <div className="absolute inset-0 bg-[#F5F5F4]/95"></div>
+            </div>
+
 
             <div className="container mx-auto px-6 lg:px-12 relative z-10">
 

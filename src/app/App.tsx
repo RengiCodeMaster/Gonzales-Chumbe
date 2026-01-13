@@ -42,7 +42,7 @@ function App() {
 
 
                     {/* 2. Spotlights decorativos para dar volumen (Efecto Mármol) */}
-                    <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white rounded-full blur-[80px] opacity-60 pointer-events-none -translate-y-1/2 translate-x-1/2"></div>
+                    <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(255,255,255,0.6)_0%,transparent_70%)] pointer-events-none -translate-y-1/2 translate-x-1/2"></div>
 
                     <div className="container mx-auto px-6 lg:px-12 relative z-10">
 
@@ -123,26 +123,26 @@ function App() {
                                 <div className="grid md:grid-cols-2 gap-6 mt-8">
                                     {/* Stat 1 */}
                                     <Reveal delay={500} width="100%">
-                                        <div className="flex items-center gap-6 p-6 rounded-sm bg-white border border-gray-100 hover:border-brand-primary/30 shadow-sm hover:shadow-md transition-all duration-300">
-                                            <div className="p-3 bg-brand-surfaceAlt shadow-inner rounded-sm text-brand-primary border border-gray-100">
-                                                <Building size={24} />
+                                        <div className="flex items-center gap-5 p-6 rounded-sm bg-gray-50/50 border border-gray-100 border-l-4 border-l-brand-primary hover:shadow-md transition-all duration-300">
+                                            <div className="p-3 bg-white rounded-full shadow-sm text-brand-primary">
+                                                <Building size={26} strokeWidth={1.5} />
                                             </div>
                                             <div>
-                                                <h4 className="text-3xl font-bold text-brand-dark">30+</h4>
-                                                <span className="text-xs text-gray-500 uppercase tracking-wider">Años de Experiencia</span>
+                                                <h4 className="text-4xl font-extrabold font-sans text-brand-dark leading-none mb-1">30+</h4>
+                                                <span className="text-xs text-gray-500 font-bold uppercase tracking-wider">Años Experiencia</span>
                                             </div>
                                         </div>
                                     </Reveal>
 
                                     {/* Stat 2 */}
                                     <Reveal delay={600} width="100%">
-                                        <div className="flex items-center gap-6 p-6 rounded-sm bg-white border border-gray-100 hover:border-brand-primary/30 shadow-sm hover:shadow-md transition-all duration-300">
-                                            <div className="p-3 bg-brand-surfaceAlt shadow-inner rounded-sm text-brand-primary border border-gray-100">
-                                                <Scale size={24} />
+                                        <div className="flex items-center gap-5 p-6 rounded-sm bg-gray-50/50 border border-gray-100 border-l-4 border-l-brand-primary hover:shadow-md transition-all duration-300">
+                                            <div className="p-3 bg-white rounded-full shadow-sm text-brand-primary">
+                                                <Scale size={26} strokeWidth={1.5} />
                                             </div>
                                             <div>
-                                                <h4 className="text-3xl font-bold text-brand-dark">98%</h4>
-                                                <span className="text-xs text-gray-500 uppercase tracking-wider">Casos Complejos</span>
+                                                <h4 className="text-4xl font-extrabold font-sans text-brand-dark leading-none mb-1">98%</h4>
+                                                <span className="text-xs text-gray-500 font-bold uppercase tracking-wider">Casos Complejos</span>
                                             </div>
                                         </div>
                                     </Reveal>

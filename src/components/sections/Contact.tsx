@@ -9,35 +9,38 @@ export const Contact: React.FC = () => {
 
     return (
         <section id={SectionId.CONTACT} className="py-12 lg:py-20 bg-[#F5F5F4] relative z-10 overflow-hidden">
-            {/* Global Texture */}
-            <div className="absolute inset-0 opacity-[0.5] pointer-events-none z-0" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E")` }}></div>
+
 
             <div className="container mx-auto px-4 lg:px-8 relative z-10">
-                <Reveal width="100%" delay={100}>
-                    <div className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col lg:flex-row w-full max-w-7xl mx-auto mb-12">
 
-                        {/* LEFT COLUMN: INFO ONLY (Natural Photo Background) */}
-                        <div className="w-full lg:w-5/12 relative flex flex-col justify-center order-2 lg:order-1 p-10 lg:p-16 overflow-hidden">
 
-                            {/* Background Image: Blurred & Neutral */}
-                            <div className="absolute inset-0 z-0 bg-black">
-                                <img
-                                    src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                                    alt="Office Interior"
-                                    className="w-full h-full object-cover opacity-60 blur-[3px] scale-105"
-                                />
-                                {/* Pure dark overlay just for text pop, absolutely NO blue */}
-                                <div className="absolute inset-0 bg-black/40"></div>
-                            </div>
+                <div className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col lg:flex-row w-full max-w-7xl mx-auto mb-12">
 
-                            {/* Contact Info Content */}
-                            <div className="relative z-10 space-y-10">
+                    {/* LEFT COLUMN: INFO ONLY (Natural Photo Background) */}
+                    <div className="w-full lg:w-5/12 relative flex flex-col justify-center order-2 lg:order-1 p-10 lg:p-16 overflow-hidden">
+
+                        {/* Background Image: Blurred & Neutral */}
+                        <div className="absolute inset-0 z-0 bg-black">
+                            <img
+                                src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                                alt="Office Interior"
+                                className="w-full h-full object-cover opacity-60 blur-[3px] scale-105"
+                            />
+                            {/* Pure dark overlay just for text pop, absolutely NO blue */}
+                            <div className="absolute inset-0 bg-black/40"></div>
+                        </div>
+
+                        {/* Contact Info Content */}
+                        <div className="relative z-10 space-y-10">
+                            <Reveal delay={0}>
                                 <div>
                                     <h3 className="text-2xl font-serif-accent text-white mb-3">Información de Contacto</h3>
                                     <p className="text-gray-400 text-sm leading-relaxed">Estamos disponibles para urgencias penales las 24 horas.</p>
                                 </div>
+                            </Reveal>
 
-                                <div className="space-y-8">
+                            <div className="space-y-8">
+                                <Reveal delay={100}>
                                     <div className="flex items-start gap-5">
                                         <div className="p-3 rounded bg-white/10 text-brand-primary shrink-0">
                                             <MapPin size={24} />
@@ -50,7 +53,9 @@ export const Contact: React.FC = () => {
                                             </p>
                                         </div>
                                     </div>
+                                </Reveal>
 
+                                <Reveal delay={200}>
                                     <div className="flex items-start gap-5">
                                         <div className="p-3 rounded bg-white/10 text-brand-primary shrink-0">
                                             <Phone size={24} />
@@ -61,7 +66,9 @@ export const Contact: React.FC = () => {
                                             <p className="text-[10px] text-red-300 font-bold uppercase tracking-wider inline-block bg-red-900/40 px-2 py-0.5 rounded">Emergencias 24/7</p>
                                         </div>
                                     </div>
+                                </Reveal>
 
+                                <Reveal delay={300}>
                                     <div className="flex items-start gap-5">
                                         <div className="p-3 rounded bg-white/10 text-brand-primary shrink-0">
                                             <Mail size={24} />
@@ -71,20 +78,24 @@ export const Contact: React.FC = () => {
                                             <p className="text-white text-base leading-relaxed font-medium">contacto@gonzaleschumbe.com</p>
                                         </div>
                                     </div>
-                                </div>
+                                </Reveal>
                             </div>
                         </div>
+                    </div>
 
-                        {/* RIGHT COLUMN: FORM (Main Content) */}
-                        <div className="w-full lg:w-7/12 bg-white p-8 lg:p-16 flex flex-col justify-center order-1 lg:order-2">
-                            <div className="max-w-2xl mx-auto w-full">
+                    {/* RIGHT COLUMN: FORM (Main Content) */}
+                    <div className="w-full lg:w-7/12 bg-white p-8 lg:p-16 flex flex-col justify-center order-1 lg:order-2">
+                        <div className="max-w-2xl mx-auto w-full">
+                            <Reveal delay={200} direction="up" width="100%">
                                 <div className="mb-10">
                                     <h2 className="text-3xl md:text-4xl font-bold text-brand-dark mb-4">Hablemos de su Caso</h2>
                                     <p className="text-gray-500 text-lg">
                                         La primera consulta es crucial. Complete el formulario y analizaremos su situación con absoluta confidencialidad.
                                     </p>
                                 </div>
+                            </Reveal>
 
+                            <Reveal delay={400} direction="up" width="100%">
                                 <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                                     <div className="grid md:grid-cols-2 gap-6">
                                         <div className="space-y-2">
@@ -147,12 +158,12 @@ export const Contact: React.FC = () => {
                                         </div>
                                     </div>
                                 </form>
-                            </div>
+                            </Reveal>
                         </div>
                     </div>
-                </Reveal>
+                </div>
 
-                {/* FULL WIDTH MAP SECTION - SEPARATE BLOCK */}
+                {/* FULL WIDTH MAP SECTION - SEPARATE BLOCK (KEEP AS IS) */}
                 <Reveal width="100%" delay={300}>
                     <div className="w-full h-[400px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative max-w-7xl mx-auto">
                         <iframe
