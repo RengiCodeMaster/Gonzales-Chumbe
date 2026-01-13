@@ -41,7 +41,7 @@ export const FAQ: React.FC = () => {
                     <Reveal delay={200}>
                         <h2 className="text-3xl font-bold text-brand-dark mb-6">
                             Respuestas claras a <br />
-                            <span className="text-brand-gold font-serif-accent italic">situaciones complejas.</span>
+                            <span className="text-brand-gold font-serif-accent ">situaciones complejas.</span>
                         </h2>
                     </Reveal>
                     <Reveal delay={300}>

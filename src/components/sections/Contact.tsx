@@ -17,23 +17,23 @@ export const Contact: React.FC = () => {
                     <div className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col lg:flex-row w-full max-w-7xl mx-auto mb-12">
 
                         {/* LEFT COLUMN: INFO ONLY (Natural Photo Background) */}
-                        <div className="w-full lg:w-5/12 relative flex flex-col justify-center order-2 lg:order-1 p-10 lg:p-16">
+                        <div className="w-full lg:w-5/12 relative flex flex-col justify-center order-2 lg:order-1 p-10 lg:p-16 overflow-hidden">
 
-                            {/* Background Image & Overlay */}
-                            <div className="absolute inset-0 z-0 is-image-bg">
+                            {/* Background Image: Blurred & Neutral */}
+                            <div className="absolute inset-0 z-0 bg-black">
                                 <img
                                     src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
                                     alt="Office Interior"
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-full object-cover opacity-60 blur-[3px] scale-105"
                                 />
-                                {/* Neutral Dark Overlay for text readability (No Blue Tint) */}
-                                <div className="absolute inset-0 bg-slate-900/80"></div>
+                                {/* Pure dark overlay just for text pop, absolutely NO blue */}
+                                <div className="absolute inset-0 bg-black/40"></div>
                             </div>
 
                             {/* Contact Info Content */}
                             <div className="relative z-10 space-y-10">
                                 <div>
-                                    <h3 className="text-2xl font-serif-accent italic text-brand-secondary mb-3">Información de Contacto</h3>
+                                    <h3 className="text-2xl font-serif-accent text-white mb-3">Información de Contacto</h3>
                                     <p className="text-gray-400 text-sm leading-relaxed">Estamos disponibles para urgencias penales las 24 horas.</p>
                                 </div>
 

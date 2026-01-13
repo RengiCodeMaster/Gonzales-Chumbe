@@ -39,7 +39,7 @@ export const Testimonials: React.FC = () => {
           <Reveal delay={200} width="100%">
             <h2 className="text-3xl md:text-5xl font-bold text-brand-dark mb-6">
               La voz de nuestros <br />
-              <span className="font-serif-accent italic text-brand-gold">defendidos.</span>
+              <span className="font-serif-accent  text-brand-gold">defendidos.</span>
             </h2>
           </Reveal>
           <Reveal delay={300} width="100%">
@@ -61,7 +61,7 @@ export const Testimonials: React.FC = () => {
                   ))}
                 </div>
 
-                <p className="text-brand-dark leading-relaxed italic mb-6 flex-grow font-serif-accent text-lg">
+                <p className="text-brand-dark leading-relaxed  mb-6 flex-grow font-serif-accent text-lg">
                   "{item.text}"
                 </p>
 

@@ -85,7 +85,7 @@ export const Stats: React.FC = () => {
         </div>
 
         <Reveal width="100%" delay={500}>
-          <p className="text-center text-gray-400 text-xs mt-12 max-w-2xl mx-auto italic">
+          <p className="text-center text-gray-400 text-xs mt-12 max-w-2xl mx-auto ">
             * Las estadísticas reflejan nuestra trayectoria histórica. En derecho penal, ningún resultado puede garantizarse al 100%, pero garantizamos el 100% de nuestro esfuerzo estratégico.
           </p>
         </Reveal>

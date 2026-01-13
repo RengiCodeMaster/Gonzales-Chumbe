@@ -49,7 +49,7 @@ export const Methodology: React.FC = () => {
             <Reveal delay={200} width="100%">
               <h2 className="text-3xl md:text-5xl font-bold leading-tight text-brand-dark">
                 Cómo trabajamos <br />
-                <span className="text-brand-gold font-serif-accent italic">su caso.</span>
+                <span className="text-brand-gold font-serif-accent ">su caso.</span>
               </h2>
             </Reveal>
           </div>

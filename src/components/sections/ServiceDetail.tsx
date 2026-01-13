@@ -73,7 +73,7 @@ export const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onClose }
                             <h1 className={`text-4xl lg:text-7xl font-bold text-white mb-6 max-w-4xl leading-tight transition-all duration-700 delay-200 drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)] ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                                 {service.title}
                             </h1>
-                            <p className={`text-xl lg:text-2xl text-gray-100 font-serif-accent italic max-w-2xl transition-all duration-700 delay-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                            <p className={`text-xl lg:text-2xl text-gray-100 font-serif-accent  max-w-2xl transition-all duration-700 delay-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                                 {service.subtitle}
                             </p>
                         </div>
@@ -101,7 +101,7 @@ export const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onClose }
                                     <div className="mt-12 p-8 border border-brand-primary/20 bg-brand-surfaceAlt rounded-sm relative overflow-hidden group hover:shadow-lg transition-all duration-500">
                                         <div className="absolute top-0 right-0 w-24 h-24 bg-brand-primary/5 rounded-full blur-2xl -mr-10 -mt-10 group-hover:bg-brand-primary/10 transition-colors"></div>
                                         <h4 className="text-sm font-bold uppercase tracking-widest text-brand-primary mb-4">Nuestro Enfoque Estratégico</h4>
-                                        <p className="text-brand-dark italic text-xl font-serif-accent">"{service.approach}"</p>
+                                        <p className="text-brand-dark  text-xl font-serif-accent">"{service.approach}"</p>
                                     </div>
                                 </Reveal>
                             </div>

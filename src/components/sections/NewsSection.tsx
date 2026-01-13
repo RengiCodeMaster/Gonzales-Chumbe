@@ -35,7 +35,7 @@ export const NewsSection: React.FC = () => {
             <Reveal width="100%">
               <h2 className="text-3xl md:text-5xl font-bold text-brand-dark leading-tight">
                 Perspectivas <br />
-                <span className="font-serif-accent italic text-brand-secondary">Legales</span>
+                <span className="font-serif-accent  text-brand-secondary">Legales</span>
               </h2>
             </Reveal>
           </div>
@@ -98,7 +98,7 @@ export const NewsSection: React.FC = () => {
               ))}
 
               {news.length === 0 && (
-                <p className="text-gray-500 italic">No hay noticias disponibles en este momento.</p>
+                <p className="text-gray-500 ">No hay noticias disponibles en este momento.</p>
               )}
             </div>
           </div>

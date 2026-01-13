@@ -21,9 +21,9 @@ export default {
                 }
             },
             fontFamily: {
-                sans: ['"Manrope"', 'sans-serif'],
-                serif: ['"Libre Baskerville"', 'serif'],
-                display: ['"Manrope"', 'sans-serif'],
+                sans: ['"Playfair Display"', 'serif'],
+                serif: ['"Playfair Display"', 'serif'],
+                display: ['"Playfair Display"', 'serif'],
             },
             animation: {
                 'fade-in-up': 'fadeInUp 0.8s ease-out forwards',

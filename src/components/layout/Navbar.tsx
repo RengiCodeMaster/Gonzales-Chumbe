@@ -217,7 +217,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenService, onCloseService })
       <style>{`
           .mobile-link {
               font-family: 'Playfair Display', serif;
-              font-style: italic;
+              font-style: ;
               font-size: 1.75rem;
               color: white;
               transition: color 0.3s;

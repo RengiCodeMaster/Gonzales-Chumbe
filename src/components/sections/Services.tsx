@@ -33,7 +33,7 @@ export const Services: React.FC<ServicesProps> = ({ onOpenService }) => {
                     <Reveal delay={200} width="100%" direction="up">
                         <h2 className="text-4xl md:text-5xl font-bold text-brand-dark leading-tight mb-6">
                             Especialistas en la <br />
-                            <span className="font-serif-accent italic text-brand-secondary">pelea difícil.</span>
+                            <span className="font-serif-accent  text-brand-secondary">pelea difícil.</span>
                         </h2>
                     </Reveal>
                     <Reveal delay={400} width="100%" direction="up">
@@ -43,19 +43,19 @@ export const Services: React.FC<ServicesProps> = ({ onOpenService }) => {
                     </Reveal>
                 </div>
 
-                {/* Services Brick Layout */}
+                {/* Services Brick Layout - Full Width Responsive Grid */}
                 <div className="flex flex-wrap justify-center gap-6">
                     {servicesData.map((service, idx) => (
                         <div
                             key={service.id}
-                            className="w-full md:w-[calc(50%-1.5rem)] lg:w-[calc(25%-1.5rem)] min-w-[280px] flex-grow-0"
+                            className="w-full md:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] min-w-[300px] flex-grow"
                         >
                             <div
-                                className="group relative bg-white rounded-xl overflow-hidden border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer h-full flex flex-col z-10"
+                                className="group relative bg-white rounded-xl overflow-hidden border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 cursor-pointer h-full flex flex-col z-10"
                                 onClick={() => onOpenService && onOpenService(service.id)}
                             >
                                 {/* Image Window */}
-                                <div className="h-48 overflow-hidden relative">
+                                <div className="h-56 overflow-hidden relative">
                                     <div className="absolute inset-0 bg-brand-dark/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
                                     <img
                                         src={service.image}
@@ -71,27 +71,27 @@ export const Services: React.FC<ServicesProps> = ({ onOpenService }) => {
                                 </div>
 
                                 {/* Content */}
-                                <div className="p-6 flex flex-col flex-grow relative">
+                                <div className="p-8 flex flex-col flex-grow relative">
                                     {/* Icon Floating */}
-                                    <div className="absolute -top-6 right-6 w-12 h-12 bg-brand-primary text-white rounded-lg shadow-lg flex items-center justify-center transform group-hover:rotate-6 transition-transform duration-300 overflow-hidden">
-                                        <PremiumIcon icon={service.icon} size={24} className="w-full h-full" />
+                                    <div className="absolute -top-6 right-8 w-14 h-14 bg-brand-primary text-white rounded-xl shadow-lg flex items-center justify-center transform group-hover:rotate-6 transition-transform duration-300 overflow-hidden border-2 border-white">
+                                        <PremiumIcon icon={service.icon} size={28} className="w-full h-full p-3" />
                                     </div>
 
-                                    <h3 className="text-xl font-bold text-brand-dark mb-2 mt-2 group-hover:text-brand-primary transition-colors">
+                                    <h3 className="text-2xl font-bold text-brand-dark mb-2 mt-2 group-hover:text-brand-primary transition-colors">
                                         {service.title}
                                     </h3>
 
-                                    <p className="text-brand-secondary text-xs font-serif-accent italic mb-3">
+                                    <p className="text-brand-secondary text-sm font-serif-accent mb-4">
                                         {service.subtitle}
                                     </p>
 
-                                    <p className="text-gray-600 text-xs leading-relaxed mb-4 border-t border-gray-100 pt-3 flex-grow">
+                                    <p className="text-gray-600 text-sm leading-relaxed mb-6 border-t border-gray-100 pt-4 flex-grow">
                                         {service.description}
                                     </p>
 
-                                    <div className="mt-auto flex items-center text-brand-primary font-bold text-[10px] uppercase tracking-widest group/btn">
+                                    <div className="mt-auto flex items-center text-brand-primary font-bold text-[11px] uppercase tracking-widest group/btn border-t border-gray-50 pt-4">
                                         Ver Estrategia
-                                        <ArrowRight size={12} className="ml-2 transform group-hover/btn:translate-x-1 transition-transform" />
+                                        <ArrowRight size={14} className="ml-2 transform group-hover/btn:translate-x-1 transition-transform" />
                                     </div>
                                 </div>
                             </div>
