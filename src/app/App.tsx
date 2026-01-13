@@ -57,7 +57,7 @@ function App() {
                                 </div>
                             </Reveal>
                             <Reveal delay={200} width="100%">
-                                <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif-accent font-bold mb-8 leading-tight text-brand-darker">
+                                <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif-accent font-bold mb-8 leading-tight text-brand-primary">
                                     Cuando todos se van, <br />
                                     <span className="text-brand-secondary">nosotros nos quedamos.</span>
                                 </h2>
@@ -84,7 +84,7 @@ function App() {
                                             <History size={24} className="text-brand-primary" />
                                         </div>
 
-                                        <h3 className="text-3xl font-bold mb-3 font-serif-accent text-brand-dark">Nuestra Historia</h3>
+                                        <h3 className="text-3xl font-bold mb-3 font-serif-accent text-gray-800">Nuestra Historia</h3>
 
                                         <div className="bg-white/80 backdrop-blur-sm p-4 rounded-r-sm border-l-4 border-brand-primary">
                                             <p className="text-gray-700 text-sm leading-relaxed font-medium">
@@ -104,13 +104,13 @@ function App() {
 
                                         <div className="space-y-8 relative z-10">
                                             <div>
-                                                <h3 className="text-2xl font-bold text-brand-dark mb-3">Entendemos su angustia</h3>
+                                                <h3 className="text-2xl font-bold text-brand-primary mb-3">Entendemos su angustia</h3>
                                                 <p className="text-gray-600 leading-relaxed text-lg">
                                                     Sabemos que un problema penal no lo deja dormir. Detrás de cada expediente vemos a una persona, a una familia preocupada. Por eso, aquí no lo vamos a juzgar; lo vamos a defender con uñas y dientes.
                                                 </p>
                                             </div>
                                             <div>
-                                                <h3 className="text-2xl font-bold text-brand-dark mb-3">Hablamos claro</h3>
+                                                <h3 className="text-2xl font-bold text-brand-primary mb-3">Hablamos claro</h3>
                                                 <p className="text-gray-600 leading-relaxed text-lg">
                                                     Nada de términos complicados ni promesas falsas. Le diremos exactamente dónde está parado y qué vamos a hacer para sacarlo de ahí.
                                                 </p>
