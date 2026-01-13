@@ -128,7 +128,7 @@ function App() {
                                                 <Building size={26} strokeWidth={1.5} />
                                             </div>
                                             <div>
-                                                <h4 className="text-4xl font-extrabold font-sans text-brand-dark leading-none mb-1">30+</h4>
+                                                <h4 className="text-4xl font-extrabold !font-sans text-brand-primary leading-none mb-1">30+</h4>
                                                 <span className="text-xs text-gray-500 font-bold uppercase tracking-wider">Años Experiencia</span>
                                             </div>
                                         </div>
@@ -141,7 +141,7 @@ function App() {
                                                 <Scale size={26} strokeWidth={1.5} />
                                             </div>
                                             <div>
-                                                <h4 className="text-4xl font-extrabold font-sans text-brand-dark leading-none mb-1">98%</h4>
+                                                <h4 className="text-4xl font-extrabold !font-sans text-brand-primary leading-none mb-1">98%</h4>
                                                 <span className="text-xs text-gray-500 font-bold uppercase tracking-wider">Casos Complejos</span>
                                             </div>
                                         </div>

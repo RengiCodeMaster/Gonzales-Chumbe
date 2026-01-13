@@ -61,7 +61,7 @@ const Counter: React.FC<CounterProps> = ({ end, duration = 2000, suffix = '', la
 
   return (
     <div ref={ref} className="text-center group p-6 border border-gray-200 rounded-lg bg-white hover:shadow-xl transition-all duration-500 relative z-10">
-      <div className="text-4xl md:text-6xl font-extrabold font-sans text-brand-primary mb-2 tabular-nums">
+      <div className="text-4xl md:text-6xl font-extrabold !font-sans text-brand-primary mb-2 tabular-nums">
         {count}{suffix}
       </div>
       <div className="h-0.5 w-12 bg-brand-gold/30 mx-auto mb-4 group-hover:w-20 group-hover:bg-brand-primary transition-all duration-500"></div>
