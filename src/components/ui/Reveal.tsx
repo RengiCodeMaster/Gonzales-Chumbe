@@ -14,7 +14,7 @@ export const Reveal: React.FC<RevealProps> = ({
     children,
     className = '',
     delay = 0,
-    duration = 1000,
+    duration = 600,
     direction = 'up',
     threshold = 0.15,
     width = "fit-content"
@@ -25,11 +25,10 @@ export const Reveal: React.FC<RevealProps> = ({
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
+                // Only trigger ONCE when it enters screen to avoid "re-playing" lag when scrolling up/down
                 if (entry.isIntersecting) {
                     setIsVisible(true);
-                } else {
-                    // Reset animation when element leaves viewport
-                    setIsVisible(false);
+                    observer.unobserve(entry.target); // Stop observing once visible
                 }
             },
             { threshold }
@@ -47,19 +46,19 @@ export const Reveal: React.FC<RevealProps> = ({
         if (isVisible) return 'opacity-100 translate-x-0 translate-y-0 scale-100';
 
         switch (direction) {
-            case 'zoom': return 'opacity-0 scale-90'; // Soft scale up
-            case 'right': return 'opacity-0 translate-x-20'; // Viene de la derecha (entra hacia la izquierda)
-            case 'left': return 'opacity-0 -translate-x-20'; // Viene de la izquierda (entra hacia la derecha)
-            case 'down': return 'opacity-0 -translate-y-10'; // Viene de arriba
+            case 'zoom': return 'opacity-0 scale-95'; // Less drastic scale
+            case 'right': return 'opacity-0 translate-x-10'; // Shorter distance
+            case 'left': return 'opacity-0 -translate-x-10'; // Shorter distance
+            case 'down': return 'opacity-0 -translate-y-6'; // Shorter distance
             case 'none': return 'opacity-0';
-            case 'up': default: return 'opacity-0 translate-y-16'; // Viene de abajo
+            case 'up': default: return 'opacity-0 translate-y-10'; // Shorter distance
         }
     };
 
     return (
         <div
             ref={ref}
-            className={`transition-all ease-[cubic-bezier(0.17,0.55,0.55,1)] transform ${getTransformClass()} ${className}`}
+            className={`transition-all ease-out transform ${getTransformClass()} ${className}`}
             style={{
                 transitionDuration: `${duration}ms`,
                 transitionDelay: `${delay}ms`,

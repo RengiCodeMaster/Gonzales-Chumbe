@@ -75,7 +75,7 @@ export const FAQ: React.FC = () => {
                                     </button>
 
                                     <div
-                                        className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === idx ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'}`}
+                                        className={`overflow-hidden transition-all duration-200 ease-out ${openIndex === idx ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'}`}
                                     >
                                         <p className="p-6 pt-0 text-gray-500 leading-relaxed border-t border-brand-gold/10">
                                             {faq.answer}
