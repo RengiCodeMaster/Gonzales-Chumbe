@@ -25,7 +25,12 @@ export const FAQ: React.FC = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     return (
-        <section className="pt-24 pb-24 bg-[#F5F5F4] border-t border-gray-200 relative">
+        <section className="pt-24 pb-24 bg-[#FAFAF9] border-t border-gray-200 relative overflow-hidden">
+            {/* Elegant Architectural Texture Background */}
+            <div
+                className="absolute inset-0 bg-repeat opacity-40 mix-blend-multiply pointer-events-none z-0"
+                style={{ backgroundImage: "url('/images/team-bg-texture.png')", backgroundSize: '600px' }}
+            ></div>
 
             <div className="container mx-auto px-6 lg:px-12 flex flex-col lg:flex-row gap-16">
 

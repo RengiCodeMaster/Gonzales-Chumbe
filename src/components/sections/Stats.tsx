@@ -1,14 +1,16 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Reveal } from '../ui/Reveal';
+import { Building, Scale, Users, Shield } from 'lucide-react';
 
 interface CounterProps {
   end: number;
   duration?: number;
   suffix?: string;
   label: string;
+  icon?: React.ReactNode;
 }
 
-const Counter: React.FC<CounterProps> = ({ end, duration = 2000, suffix = '', label }) => {
+const Counter: React.FC<CounterProps> = ({ end, duration = 2000, suffix = '', label, icon }) => {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -41,8 +43,6 @@ const Counter: React.FC<CounterProps> = ({ end, duration = 2000, suffix = '', la
       if (!startTime) startTime = timestamp;
       const progress = timestamp - startTime;
       const percentage = Math.min(progress / duration, 1);
-
-      // Easing function for smooth stop
       const easeOutQuart = (x: number): number => 1 - Math.pow(1 - x, 4);
 
       setCount(Math.floor(easeOutQuart(percentage) * end));
@@ -55,47 +55,73 @@ const Counter: React.FC<CounterProps> = ({ end, duration = 2000, suffix = '', la
     };
 
     animationFrame = requestAnimationFrame(animate);
-
     return () => cancelAnimationFrame(animationFrame);
   }, [isVisible, end, duration]);
 
   return (
-    <div ref={ref} className="text-center group p-6 border border-gray-200 rounded-lg bg-white hover:shadow-xl transition-all duration-500 relative z-10">
-      <div className="text-4xl md:text-6xl font-extrabold !font-sans text-brand-primary mb-2 tabular-nums">
+    <div ref={ref} className="flex flex-col items-center justify-center text-center p-6 group">
+      {icon && (
+        <div className="mb-4 text-white group-hover:scale-110 transition-transform duration-500 drop-shadow-md">
+          {icon}
+        </div>
+      )}
+      <div className="text-5xl md:text-6xl font-extrabold !font-sans text-white mb-2 tabular-nums tracking-tight">
         {count}{suffix}
       </div>
-      <div className="h-0.5 w-12 bg-brand-gold/30 mx-auto mb-4 group-hover:w-20 group-hover:bg-brand-primary transition-all duration-500"></div>
-      <p className="text-brand-secondary text-sm uppercase tracking-widest font-bold">{label}</p>
+      <p className="text-gray-300 text-xs md:text-sm uppercase tracking-[0.2em] font-medium max-w-[150px] leading-relaxed">
+        {label}
+      </p>
     </div>
   );
 };
 
 export const Stats: React.FC = () => {
   return (
-    <section className="py-20 bg-[#FAFAF9] relative border-b border-gray-200">
+    <section className="py-12 relative overflow-hidden">
+      {/* Background Image with Fixed Effect */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-fixed z-0"
+        style={{ backgroundImage: "url('/images/about/stats-bg-high-res.png')" }}
+      ></div>
 
+      {/* Dark Overlay - Reduced opacity from 90% to 50% for clearer image */}
+      <div className="absolute inset-0 bg-[#0f172a]/50 z-10"></div>
 
-      <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="container mx-auto px-6 lg:px-12 relative z-20">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-8">
           <Reveal width="100%" delay={0}>
-            <Counter end={30} suffix="+" label="Años de Trayectoria" />
+            <Counter
+              end={30}
+              suffix="+"
+              label="Años de Experiencia"
+              icon={<Building size={32} strokeWidth={2} />}
+            />
           </Reveal>
           <Reveal width="100%" delay={100}>
-            <Counter end={2500} suffix="+" label="Casos Gestionados" />
+            <Counter
+              end={98}
+              suffix="%"
+              label="Casos Complejos Resueltos"
+              icon={<Scale size={32} strokeWidth={2} />}
+            />
           </Reveal>
           <Reveal width="100%" delay={200}>
-            <Counter end={98} suffix="%" label="Tasa de Éxito" />
+            <Counter
+              end={15}
+              suffix=""
+              label="Especialistas de Élite"
+              icon={<Users size={32} strokeWidth={2} />}
+            />
           </Reveal>
           <Reveal width="100%" delay={300}>
-            <Counter end={24} suffix="/7" label="Disponibilidad" />
+            <Counter
+              end={24}
+              suffix="/7"
+              label="Atención en Emergencias"
+              icon={<Shield size={32} strokeWidth={2} />}
+            />
           </Reveal>
         </div>
-
-        <Reveal width="100%" delay={500}>
-          <p className="text-center text-gray-500 text-sm mt-12 max-w-3xl mx-auto leading-relaxed">
-            * Las estadísticas reflejan nuestra trayectoria histórica. En derecho penal, ningún resultado puede garantizarse al 100%, pero garantizamos el 100% de nuestro esfuerzo estratégico.
-          </p>
-        </Reveal>
       </div>
     </section>
   );

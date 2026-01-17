@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar } from '../components/layout/Navbar';
 import { Hero } from '../components/sections/Hero';
 import { Services } from '../components/sections/Services';
@@ -17,6 +17,36 @@ import { Reveal } from '../components/ui/Reveal';
 
 function App() {
     const [selectedService, setSelectedService] = useState<ServiceType | null>(null);
+    const [currentImage, setCurrentImage] = useState(0);
+
+    const carouselImages = [
+        {
+            src: "/images/about/office-modern.png",
+            label: "Estudio Actual",
+            alt: "Despacho Jurídico Moderno"
+        },
+        {
+            src: "/images/about/office-classic.png",
+            label: "Nuestros Inicios",
+            alt: "Historia del Estudio"
+        }
+    ];
+
+    const nextImage = () => {
+        setCurrentImage((prev) => (prev === carouselImages.length - 1 ? 0 : prev + 1));
+    };
+
+    const prevImage = () => {
+        setCurrentImage((prev) => (prev === 0 ? carouselImages.length - 1 : prev - 1));
+    };
+
+    // Auto-advance carousel
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentImage((prev) => (prev === carouselImages.length - 1 ? 0 : prev + 1));
+        }, 5000); // 5 seconds
+        return () => clearInterval(timer);
+    }, [currentImage]);
 
     const handleOpenService = (serviceId: string) => {
         const service = servicesData.find(s => s.id === serviceId);
@@ -37,128 +67,133 @@ function App() {
                 <Hero />
 
                 {/* LA FIRMA - UPDATED BACKGROUND: "Silver Mist" Gradient instead of Pure White */}
-                <section id={SectionId.ABOUT} className="pt-32 pb-20 bg-gradient-to-b from-[#f8fafc] to-[#f1f5f9] relative overflow-hidden text-brand-dark border-b border-gray-200">
-
-
-
-                    {/* 2. Spotlights decorativos para dar volumen (Efecto Mármol) */}
-                    <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(255,255,255,0.6)_0%,transparent_70%)] pointer-events-none -translate-y-1/2 translate-x-1/2"></div>
+                {/* LA FIRMA - RESTRUCTURED LAYOUT (NEW REFERENCE) */}
+                <section id={SectionId.ABOUT} className="py-24 bg-white relative overflow-hidden">
+                    {/* Elegant Architectural Texture Background */}
+                    <div
+                        className="absolute inset-0 bg-repeat opacity-40 mix-blend-multiply pointer-events-none z-0"
+                        style={{ backgroundImage: "url('/images/team-bg-texture.png')", backgroundSize: '600px' }}
+                    ></div>
 
                     <div className="container mx-auto px-6 lg:px-12 relative z-10">
+                        <div className="grid lg:grid-cols-12 gap-12 items-start">
 
-                        {/* Header Narrativo */}
-                        <div className="max-w-4xl mb-20">
-                            <Reveal width="100%">
-                                <div className="flex items-center gap-3 mb-6">
-                                    <span className="w-12 h-[2px] bg-brand-primary"></span>
-                                    <span className="text-brand-primary font-bold tracking-[0.3em] uppercase text-[10px]">
-                                        Nuestra Esencia
-                                    </span>
-                                </div>
-                            </Reveal>
-                            <Reveal delay={200} width="100%">
-                                <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif-accent font-bold mb-8 leading-tight text-brand-primary">
-                                    Cuando todos se van, <br />
-                                    <span className="text-brand-secondary">nosotros nos quedamos.</span>
-                                </h2>
-                            </Reveal>
-                        </div>
+                            {/* LEFT COLUMN: CAROUSEL + HISTORY CARD (Span 5) */}
+                            <div className="lg:col-span-5 relative">
+                                <Reveal width="100%" className="h-full">
+                                    {/* IMAGE CAROUSEL */}
+                                    <div className="relative h-[450px] lg:h-[650px] w-full shadow-2xl rounded-sm overflow-hidden group bg-gray-100">
+                                        <div className="absolute inset-0 bg-black/10 z-10"></div>
 
-                        {/* Grid Editorial Asimétrico */}
-                        <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+                                        {/* Carousel Logic - Dynamic Image Rendering */}
+                                        {carouselImages.map((img, idx) => (
+                                            <div
+                                                key={idx}
+                                                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${currentImage === idx ? 'opacity-100' : 'opacity-0'}`}
+                                            >
+                                                <img
+                                                    src={img.src}
+                                                    alt={img.alt}
+                                                    className="w-full h-full object-cover object-center"
+                                                />
+                                                <div className="absolute bottom-4 right-4 bg-black/60 text-white text-xs px-3 py-1.5 rounded backdrop-blur-sm z-20 font-bold tracking-wider uppercase">
+                                                    {img.label}
+                                                </div>
+                                            </div>
+                                        ))}
 
-                            {/* COLUMNA 1: Imagen Principal (Anchor Visual) - Span 5 */}
-                            <div className="lg:col-span-5 flex flex-col gap-6">
-                                <div className="relative h-[550px] w-full rounded-sm overflow-hidden group shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-gray-200 bg-gray-100">
-
-                                    {/* Placeholder Icon (Centered) */}
-                                    <div className="absolute inset-0 flex items-center justify-center text-gray-300 group-hover:scale-105 transition-transform duration-700">
-                                        <Scale size={180} strokeWidth={0.5} />
+                                        {/* Carousel Controls */}
+                                        <button
+                                            onClick={prevImage}
+                                            className="absolute top-1/2 left-4 z-30 p-3 bg-white/20 backdrop-blur-md hover:bg-brand-primary hover:text-white text-white rounded-full cursor-pointer transition-all duration-300 -translate-y-1/2 group/arrow"
+                                            title="Ver anterior"
+                                        >
+                                            <div className="w-5 h-5 border-l-2 border-t-2 border-current transform -rotate-45 ml-1"></div>
+                                        </button>
+                                        <button
+                                            onClick={nextImage}
+                                            className="absolute top-1/2 right-4 z-30 p-3 bg-white/20 backdrop-blur-md hover:bg-brand-primary hover:text-white text-white rounded-full cursor-pointer transition-all duration-300 -translate-y-1/2 group/arrow"
+                                            title="Ver siguiente"
+                                        >
+                                            <div className="w-5 h-5 border-r-2 border-t-2 border-current transform rotate-45 mr-1"></div>
+                                        </button>
                                     </div>
 
-                                    {/* Content Overlay (Bottom) */}
-                                    <div className="absolute bottom-0 left-0 w-full p-8">
-
-                                        {/* Icon Box */}
-                                        <div className="bg-white shadow-md p-4 rounded-sm inline-block mb-4 border border-gray-100">
-                                            <History size={24} className="text-brand-primary" />
+                                    {/* OVERLAY CARD: NUESTRA HISTORIA (Moved to Bottom Left to not block arrow) */}
+                                    <div className="absolute bottom-20 -left-12 z-30 w-[260px] bg-white p-6 shadow-[0_20px_50px_rgba(0,0,0,0.15)] rounded-sm border-t-4 border-brand-primary hidden lg:block">
+                                        <div className="mb-3 text-brand-primary">
+                                            <History size={28} strokeWidth={1.5} />
                                         </div>
-
-                                        <h3 className="text-3xl font-bold mb-3 font-serif-accent text-gray-800">Nuestra Historia</h3>
-
-                                        <div className="bg-white/80 backdrop-blur-sm p-4 rounded-r-sm border-l-4 border-brand-primary">
-                                            <p className="text-gray-700 text-sm leading-relaxed font-medium">
-                                                Desde 1994 caminando los pasillos de tribunales. Décadas de experiencia real, no de manual.
-                                            </p>
-                                        </div>
+                                        <h3 className="text-lg font-bold text-slate-900 mb-2 uppercase font-serif-accent">Nuestra Historia</h3>
+                                        <p className="text-xs text-gray-600 leading-relaxed font-medium">
+                                            Nacimos bajo la premisa de la defensa incansable. Cada caso es un compromiso ético y personal con la libertad.
+                                        </p>
                                     </div>
-                                </div>
+
+                                    {/* Mobile version of the card */}
+                                    <div className="relative z-30 w-full bg-white p-6 shadow-lg rounded-sm border-t-4 border-brand-primary mt-[-40px] lg:hidden pb-12">
+                                        <div className="mb-3 text-brand-primary">
+                                            <History size={28} strokeWidth={1.5} />
+                                        </div>
+                                        <h3 className="text-lg font-bold text-slate-900 mb-2 uppercase font-serif-accent">Nuestra Historia</h3>
+                                        <p className="text-xs text-gray-600 leading-relaxed font-medium">
+                                            Nacimos bajo la premisa de la defensa incansable con la libertad.
+                                        </p>
+                                    </div>
+                                </Reveal>
                             </div>
 
-                            {/* COLUMNA 2: Contenido - Span 7 */}
-                            <div className="lg:col-span-7 flex flex-col gap-10">
+                            {/* RIGHT COLUMN: CONTENT BLOCKS (Span 7) */}
+                            <div className="lg:col-span-7 flex flex-col gap-10 pl-0 lg:pl-12 pt-8">
 
-                                {/* CARD: WHITE CLEAN STYLE - Ahora resalta más sobre el fondo gris */}
-                                <Reveal delay={400} direction="left">
-                                    <div className="bg-white border border-white/50 p-8 md:p-10 rounded-sm shadow-xl relative overflow-hidden group hover:shadow-2xl transition-all duration-500">
-
-                                        <div className="space-y-8 relative z-10">
-                                            <div>
-                                                <h3 className="text-2xl font-bold text-brand-primary mb-3">Entendemos su angustia</h3>
-                                                <p className="text-gray-600 leading-relaxed text-lg">
-                                                    Sabemos que un problema penal no lo deja dormir. Detrás de cada expediente vemos a una persona, a una familia preocupada. Por eso, aquí no lo vamos a juzgar; lo vamos a defender con uñas y dientes.
-                                                </p>
-                                            </div>
-                                            <div>
-                                                <h3 className="text-2xl font-bold text-brand-primary mb-3">Hablamos claro</h3>
-                                                <p className="text-gray-600 leading-relaxed text-lg">
-                                                    Nada de términos complicados ni promesas falsas. Le diremos exactamente dónde está parado y qué vamos a hacer para sacarlo de ahí.
-                                                </p>
-                                            </div>
-                                        </div>
+                                {/* BLOCK 1: Title + Text */}
+                                <Reveal delay={200} width="100%">
+                                    <div className="border-l-[3px] border-brand-dark pl-6">
+                                        <h2 className="text-3xl md:text-4xl font-serif-accent font-bold mb-4 text-slate-900 uppercase">
+                                            Entendemos su Angustia
+                                        </h2>
+                                        <p className="text-gray-600 text-lg leading-relaxed">
+                                            Sabemos que un problema penal no lo deja dormir. Detrás de cada expediente vemos a una persona, a una familia preocupada. Por eso, aquí no lo vamos a juzgar; lo vamos a defender con uñas y dientes.
+                                        </p>
                                     </div>
                                 </Reveal>
 
-                                {/* Fila Dividida: Stats minimalistas */}
-                                <div className="grid md:grid-cols-2 gap-6 mt-8">
-                                    {/* Stat 1 */}
-                                    <Reveal delay={500} width="100%">
-                                        <div className="flex items-center gap-5 p-6 rounded-sm bg-gray-50/50 border border-gray-100 border-l-4 border-l-brand-primary hover:shadow-md transition-all duration-300">
-                                            <div className="p-3 bg-white rounded-full shadow-sm text-brand-primary">
-                                                <Building size={26} strokeWidth={1.5} />
-                                            </div>
-                                            <div>
-                                                <h4 className="text-4xl font-extrabold !font-sans text-brand-primary leading-none mb-1">30+</h4>
-                                                <span className="text-xs text-gray-500 font-bold uppercase tracking-wider">Años Experiencia</span>
-                                            </div>
+                                {/* BLOCK 2: Two Boxes (Dark & Light) */}
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <Reveal delay={300} width="100%">
+                                        <div className="bg-white border-t-4 border-brand-primary p-8 h-full hover:-translate-y-1 transition-transform duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.08)]">
+                                            <span className="text-[10px] uppercase tracking-[0.2em] text-brand-primary/80 mb-3 block font-bold">Misión Crítica</span>
+                                            <h3 className="text-xl font-bold mb-4 text-slate-900">LEALTAD ABSOLUTA</h3>
+                                            <p className="text-gray-600 text-sm leading-relaxed font-medium">
+                                                Sin condiciones, sin reservas. Su confianza es nuestro mayor activo y nuestra responsabilidad suprema ante cualquier tribunal.
+                                            </p>
                                         </div>
                                     </Reveal>
-
-                                    {/* Stat 2 */}
-                                    <Reveal delay={600} width="100%">
-                                        <div className="flex items-center gap-5 p-6 rounded-sm bg-gray-50/50 border border-gray-100 border-l-4 border-l-brand-primary hover:shadow-md transition-all duration-300">
-                                            <div className="p-3 bg-white rounded-full shadow-sm text-brand-primary">
-                                                <Scale size={26} strokeWidth={1.5} />
-                                            </div>
-                                            <div>
-                                                <h4 className="text-4xl font-extrabold !font-sans text-brand-primary leading-none mb-1">98%</h4>
-                                                <span className="text-xs text-gray-500 font-bold uppercase tracking-wider">Casos Complejos</span>
-                                            </div>
+                                    <Reveal delay={400} width="100%">
+                                        <div className="bg-white border-t-4 border-brand-dark p-8 h-full hover:-translate-y-1 transition-transform duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.08)]">
+                                            <span className="text-[10px] uppercase tracking-[0.2em] text-gray-400 mb-3 block font-bold">Metodología</span>
+                                            <h3 className="text-xl font-bold text-slate-900 mb-4">ESTRATEGIA PENAL</h3>
+                                            <p className="text-gray-600 text-sm leading-relaxed font-medium">
+                                                Aplicamos tácticas de defensa procesal de alto nivel, anticipándonos a cada movimiento del sistema judicial con precisión técnica.
+                                            </p>
                                         </div>
                                     </Reveal>
                                 </div>
 
-                                {/* Quote Final */}
-                                <Reveal delay={800} width="100%">
-                                    <div className="flex items-start gap-4 opacity-100 mt-8">
-                                        <span className="text-6xl text-brand-primary font-serif-accent leading-[0] mt-4 opacity-20">"</span>
-                                        <p className="text-brand-secondary italic font-serif-accent text-xl pt-2">
-                                            No somos tramitadores de papeles. Peleamos su caso como si fuera nuestra propia libertad.
+                                {/* BLOCK 3: Title + Text (Hablamos Claro) */}
+                                <Reveal delay={500} width="100%">
+                                    <div className="border-l-[3px] border-brand-dark pl-6 mt-4">
+                                        <h2 className="text-3xl md:text-4xl font-serif-accent font-bold mb-4 text-slate-900 uppercase">
+                                            Hablamos Claro
+                                        </h2>
+                                        <p className="text-gray-600 text-lg leading-relaxed">
+                                            Nada de términos complicados ni promesas falsas. Le diremos exactamente dónde está parado y qué vamos a hacer para sacarlo de ahí. Transparencia total en momentos de incertidumbre.
                                         </p>
                                     </div>
                                 </Reveal>
 
                             </div>
+
                         </div>
                     </div>
                 </section>
@@ -247,11 +282,13 @@ function App() {
             </div>
 
             {/* Detail Overlay */}
-            {selectedService && (
-                <ServiceDetail service={selectedService} onClose={handleCloseService} />
-            )}
+            {
+                selectedService && (
+                    <ServiceDetail service={selectedService} onClose={handleCloseService} />
+                )
+            }
 
-        </div>
+        </div >
     );
 }
 

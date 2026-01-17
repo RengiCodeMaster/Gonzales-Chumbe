@@ -26,7 +26,12 @@ const associates = [
 
 export const Team: React.FC = () => {
     return (
-        <section id={SectionId.TEAM} className="py-24 bg-[#FAFAF9] relative overflow-hidden border-t border-gray-200">
+        <section id={SectionId.TEAM} className="pt-32 pb-24 bg-[#FAFAF9] relative overflow-hidden border-t border-gray-200">
+            {/* Elegant Architectural Texture Background */}
+            <div
+                className="absolute inset-0 bg-repeat opacity-40 mix-blend-multiply pointer-events-none z-0"
+                style={{ backgroundImage: "url('/images/team-bg-texture.png')", backgroundSize: '600px' }}
+            ></div>
 
 
             {/* Background decoration - Radial Light */}
@@ -35,13 +40,32 @@ export const Team: React.FC = () => {
             <div className="container mx-auto px-6 lg:px-12 relative z-10">
 
                 {/* Section Header */}
-                <div className="mb-16 text-center max-w-3xl mx-auto">
-                    <Reveal width="100%">
-                        <span className="text-brand-primary font-bold tracking-widest uppercase text-xs mb-3 block">Excelencia Profesional</span>
-                        <h2 className="text-4xl md:text-5xl font-bold text-brand-dark mb-6">
+                <div className="mb-8 text-center max-w-3xl mx-auto relative">
+                    {/* Watermark Text */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full select-none pointer-events-none z-0 overflow-hidden flex justify-center items-center">
+                        <span className="text-[4rem] md:text-[7rem] font-black text-gray-300/30 uppercase tracking-widest">
+                            Expertise
+                        </span>
+                    </div>
+
+                    <Reveal width="100%" className="relative z-10 flex flex-col items-center">
+                        {/* Team Group Image - New Integration */}
+                        <div className="relative w-full max-w-2xl mx-auto -mb-12 mt-[-60px] z-0 opacity-90 hover:opacity-100 transition-opacity duration-500">
+                            <img
+                                src="/images/team-group.png"
+                                alt="Equipo Legal Gonzales Chumbe"
+                                className="w-full h-auto object-contain drop-shadow-xl"
+                            />
+                        </div>
+
+                        <div className="relative z-10 bg-white/60 backdrop-blur-sm px-6 py-4 rounded-xl shadow-sm border border-white/50 inline-block mb-6">
+                            <span className="text-brand-primary font-bold tracking-widest uppercase text-xs block">Excelencia Profesional</span>
+                        </div>
+
+                        <h2 className="text-4xl md:text-5xl font-bold text-brand-dark mb-6 relative z-10">
                             Nuestro <span className="font-serif-accent text-brand-secondary">Equipo</span>
                         </h2>
-                        <p className="text-gray-500 text-lg leading-relaxed">
+                        <p className="text-gray-500 text-lg leading-relaxed max-w-2xl mx-auto relative z-10">
                             Un cuerpo de abogados penalistas elegidos por su trayectoria, ética y capacidad técnica para resolver conflictos de alta complejidad.
                         </p>
                     </Reveal>

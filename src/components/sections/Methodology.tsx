@@ -33,6 +33,11 @@ export const Methodology: React.FC = () => {
   return (
     // Stone 50 Background with Noise Texture
     <section className="py-24 bg-[#FAFAF9] text-brand-dark border-b border-gray-100 relative overflow-hidden">
+      {/* Elegant Architectural Texture Background */}
+      <div
+        className="absolute inset-0 bg-repeat opacity-40 mix-blend-multiply pointer-events-none z-0"
+        style={{ backgroundImage: "url('/images/team-bg-texture.png')", backgroundSize: '600px' }}
+      ></div>
 
 
 

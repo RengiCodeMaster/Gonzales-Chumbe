@@ -3,12 +3,30 @@ import { MapPin, Phone, Mail, Clock, ShieldAlert } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { SectionId } from '../../types';
 import { Reveal } from '../ui/Reveal';
+import { servicesData } from '../../data/services';
 
 export const Contact: React.FC = () => {
-    // Removed unused mapInfo state and Gemini effect
+    // Secretary Carousel State
+    const [secretaryIndex, setSecretaryIndex] = useState(0);
+    const secretaries = [
+        "/images/secretary.png",
+        "/images/secretary-2.png"
+    ];
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setSecretaryIndex((prev) => (prev === 0 ? 1 : 0));
+        }, 5000); // Change every 5 seconds
+        return () => clearInterval(timer);
+    }, []);
 
     return (
-        <section id={SectionId.CONTACT} className="py-12 lg:py-20 bg-[#F5F5F4] relative z-10 overflow-hidden">
+        <section id={SectionId.CONTACT} className="py-12 lg:py-20 bg-[#FAFAF9] relative z-10 overflow-hidden">
+            {/* Elegant Architectural Texture Background */}
+            <div
+                className="absolute inset-0 bg-repeat opacity-40 mix-blend-multiply pointer-events-none z-0"
+                style={{ backgroundImage: "url('/images/team-bg-texture.png')", backgroundSize: '600px' }}
+            ></div>
 
 
             <div className="container mx-auto px-4 lg:px-8 relative z-10">
@@ -16,66 +34,64 @@ export const Contact: React.FC = () => {
 
                 <div className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col lg:flex-row w-full max-w-7xl mx-auto mb-12">
 
-                    {/* LEFT COLUMN: INFO ONLY (Natural Photo Background) */}
-                    <div className="w-full lg:w-5/12 relative flex flex-col justify-center order-2 lg:order-1 p-10 lg:p-16 overflow-hidden">
-
-                        {/* Background Image: Blurred & Neutral */}
-                        <div className="absolute inset-0 z-0 bg-black">
-                            <img
-                                src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                                alt="Office Interior"
-                                className="w-full h-full object-cover opacity-60 blur-[3px] scale-105"
-                            />
-                            {/* Pure dark overlay just for text pop, absolutely NO blue */}
-                            <div className="absolute inset-0 bg-black/40"></div>
+                    {/* LEFT COLUMN: CONTACT INFO & PHOTO (Clean Layout) */}
+                    <div className="w-full lg:w-5/12 p-8 lg:p-12 bg-white flex flex-col order-2 lg:order-1 lg:border-r border-gray-100">
+                        {/* Image Container - "Cuadro" */}
+                        <div className="relative w-full aspect-[3/4] bg-gradient-to-b from-gray-50 to-gray-200 rounded-lg overflow-hidden mb-8 shadow-inner border border-gray-100">
+                            {secretaries.map((src, idx) => (
+                                <img
+                                    key={idx}
+                                    src={src}
+                                    alt="Asistente Legal"
+                                    className={`absolute inset-0 w-full h-full object-cover object-top filter grayscale-[20%] contrast-110 transition-opacity duration-1000 ${secretaryIndex === idx ? 'opacity-100' : 'opacity-0'}`}
+                                />
+                            ))}
                         </div>
 
-                        {/* Contact Info Content */}
-                        <div className="relative z-10 space-y-10">
+                        {/* Info Block (Below Image) */}
+                        <div className="space-y-8">
                             <Reveal delay={0}>
-                                <div>
-                                    <h3 className="text-2xl font-serif-accent text-white mb-3">Información de Contacto</h3>
-                                    <p className="text-gray-400 text-sm leading-relaxed">Estamos disponibles para urgencias penales las 24 horas.</p>
+                                <div className="border-l-4 border-brand-primary pl-4">
+                                    <h3 className="text-xl font-bold text-brand-dark uppercase tracking-wide mb-2">Estamos para Asistirle</h3>
+                                    <p className="text-gray-500 text-sm leading-relaxed">
+                                        Atención personalizada y técnica para sus necesidades legales de alta complejidad.
+                                    </p>
                                 </div>
                             </Reveal>
 
-                            <div className="space-y-8">
+                            <div className="space-y-4 pt-2">
                                 <Reveal delay={100}>
-                                    <div className="flex items-start gap-5">
-                                        <div className="p-3 rounded bg-white/10 text-brand-primary shrink-0">
-                                            <MapPin size={24} />
+                                    <div className="flex items-start gap-4 group">
+                                        <div className="p-2 bg-gray-50 rounded-md text-brand-primary group-hover:bg-brand-primary group-hover:text-white transition-colors">
+                                            <MapPin size={18} />
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-xs uppercase tracking-wider mb-2 text-gray-300">Oficina Central</h4>
-                                            <p className="text-white text-base leading-relaxed font-medium">
-                                                Av. Alameda Perú N° 450<br />
-                                                Tingo María, Huánuco
-                                            </p>
+                                            <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-0.5">Visítenos</span>
+                                            <p className="text-sm font-medium text-brand-dark">Av. Alameda Perú N° 450, Tingo María</p>
                                         </div>
                                     </div>
                                 </Reveal>
 
                                 <Reveal delay={200}>
-                                    <div className="flex items-start gap-5">
-                                        <div className="p-3 rounded bg-white/10 text-brand-primary shrink-0">
-                                            <Phone size={24} />
+                                    <div className="flex items-start gap-4 group">
+                                        <div className="p-2 bg-gray-50 rounded-md text-brand-primary group-hover:bg-brand-primary group-hover:text-white transition-colors">
+                                            <Phone size={18} />
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-xs uppercase tracking-wider mb-2 text-gray-300">Teléfonos</h4>
-                                            <p className="text-white font-bold text-xl leading-relaxed mb-1">+51 962 123 456</p>
-                                            <p className="text-[10px] text-red-300 font-bold uppercase tracking-wider inline-block bg-red-900/40 px-2 py-0.5 rounded">Emergencias 24/7</p>
+                                            <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-0.5">Llámenos</span>
+                                            <p className="text-sm font-medium text-brand-dark">+51 962 123 456</p>
                                         </div>
                                     </div>
                                 </Reveal>
 
                                 <Reveal delay={300}>
-                                    <div className="flex items-start gap-5">
-                                        <div className="p-3 rounded bg-white/10 text-brand-primary shrink-0">
-                                            <Mail size={24} />
+                                    <div className="flex items-start gap-4 group">
+                                        <div className="p-2 bg-gray-50 rounded-md text-brand-primary group-hover:bg-brand-primary group-hover:text-white transition-colors">
+                                            <Mail size={18} />
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-xs uppercase tracking-wider mb-2 text-gray-300">Email</h4>
-                                            <p className="text-white text-base leading-relaxed font-medium">contacto@gonzaleschumbe.com</p>
+                                            <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-0.5">Escríbanos</span>
+                                            <p className="text-sm font-medium text-brand-dark">contacto@gonzaleschumbe.com</p>
                                         </div>
                                     </div>
                                 </Reveal>
@@ -96,66 +112,82 @@ export const Contact: React.FC = () => {
                             </Reveal>
 
                             <Reveal delay={400} direction="up" width="100%">
-                                <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-                                    <div className="grid md:grid-cols-2 gap-6">
-                                        <div className="space-y-2">
-                                            <label className="text-xs font-bold text-brand-dark uppercase tracking-wide ml-1">Nombre Completo</label>
+                                <form className="space-y-8" onSubmit={(e) => { e.preventDefault(); /* openWhatsApp(); */ }}>
+                                    <div className="grid md:grid-cols-2 gap-8">
+                                        <div className="group relative z-0 w-full mb-2">
                                             <input
                                                 type="text"
-                                                className="w-full bg-gray-50 border border-gray-200 p-4 rounded focus:bg-white focus:border-brand-primary focus:ring-1 focus:ring-brand-primary outline-none transition-all placeholder-gray-400 text-brand-dark text-sm"
-                                                placeholder="Juan Pérez"
+                                                name="name"
+                                                placeholder=" "
+                                                className="block py-3 px-0 w-full text-sm text-brand-dark bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-brand-primary peer transition-colors"
+                                                required
                                             />
+                                            <label className="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-brand-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                                                NOMBRE COMPLETO
+                                            </label>
                                         </div>
-                                        <div className="space-y-2">
-                                            <label className="text-xs font-bold text-brand-dark uppercase tracking-wide ml-1">Teléfono</label>
-                                            <input
-                                                type="tel"
-                                                className="w-full bg-gray-50 border border-gray-200 p-4 rounded focus:bg-white focus:border-brand-primary focus:ring-1 focus:ring-brand-primary outline-none transition-all placeholder-gray-400 text-brand-dark text-sm"
-                                                placeholder="+51 9..."
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="grid md:grid-cols-2 gap-6">
-                                        <div className="space-y-2">
-                                            <label className="text-xs font-bold text-brand-dark uppercase tracking-wide ml-1">Correo Electrónico</label>
+                                        <div className="group relative z-0 w-full mb-2">
                                             <input
                                                 type="email"
-                                                className="w-full bg-gray-50 border border-gray-200 p-4 rounded focus:bg-white focus:border-brand-primary focus:ring-1 focus:ring-brand-primary outline-none transition-all placeholder-gray-400 text-brand-dark text-sm"
-                                                placeholder="ejemplo@correo.com"
+                                                name="email"
+                                                placeholder=" "
+                                                className="block py-3 px-0 w-full text-sm text-brand-dark bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-brand-primary peer transition-colors"
+                                                required
                                             />
-                                        </div>
-                                        <div className="space-y-2">
-                                            <label className="text-xs font-bold text-brand-dark uppercase tracking-wide ml-1">Motivo</label>
-                                            <select className="w-full bg-gray-50 border border-gray-200 p-4 rounded focus:bg-white focus:border-brand-primary focus:ring-1 focus:ring-brand-primary outline-none transition-all text-brand-dark text-sm cursor-pointer">
-                                                <option value="" disabled selected>Seleccione opción...</option>
-                                                <option>Urgencia / Detención</option>
-                                                <option>Citación Judicial</option>
-                                                <option>Delito Económico</option>
-                                                <option>Apelaciones</option>
-                                                <option>Otro</option>
-                                            </select>
+                                            <label className="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-brand-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                                                CORREO ELECTRÓNICO
+                                            </label>
                                         </div>
                                     </div>
 
-                                    <div className="space-y-2">
-                                        <label className="text-xs font-bold text-brand-dark uppercase tracking-wide ml-1">Detalles del Caso</label>
+                                    <div className="group relative z-0 w-full mb-2">
+                                        <div className="relative">
+                                            <select
+                                                name="subject"
+                                                className="block py-3 px-0 w-full text-sm text-brand-dark bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-brand-primary peer cursor-pointer"
+                                                defaultValue=""
+                                                required
+                                            >
+                                                <option value="" disabled className="text-gray-400">Seleccione un área de práctica</option>
+                                                {servicesData.map((service) => (
+                                                    <option key={service.id} value={service.title} className="text-brand-dark">
+                                                        {service.title}
+                                                    </option>
+                                                ))}
+                                                <option value="otro" className="text-brand-dark">Otro / Consulta General</option>
+                                            </select>
+                                            <label className="absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0]">
+                                                ASUNTO DE LA CONSULTA
+                                            </label>
+                                            <div className="absolute inset-y-0 right-0 flex items-center pointer-events-none text-gray-400">
+                                                <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" fillRule="evenodd"></path></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="group relative z-0 w-full mb-2">
                                         <textarea
                                             rows={4}
-                                            className="w-full bg-gray-50 border border-gray-200 p-4 rounded focus:bg-white focus:border-brand-primary focus:ring-1 focus:ring-brand-primary outline-none transition-all placeholder-gray-400 text-brand-dark text-sm resize-none"
-                                            placeholder="Describa brevemente la situación..."
+                                            name="message"
+                                            placeholder=" "
+                                            className="block py-3 px-0 w-full text-sm text-brand-dark bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-brand-primary peer transition-colors resize-none"
+                                            required
                                         ></textarea>
+                                        <label className="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-brand-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                                            MENSAJE DETALLADO
+                                        </label>
                                     </div>
 
-                                    <div className="pt-4 flex flex-col md:flex-row items-center gap-6">
-                                        <Button variant="primary" className="w-full md:w-auto px-10 py-4 text-sm font-bold shadow-lg hover:shadow-brand-primary/25 whitespace-nowrap">
-                                            ENVIAR CONSULTA
-                                        </Button>
-
-                                        <div className="flex items-center gap-2 text-gray-400 opacity-80">
-                                            <ShieldAlert size={14} />
-                                            <span className="text-[10px] uppercase tracking-wider font-medium">Datos protegidos por secreto profesional</span>
-                                        </div>
+                                    <div className="pt-6">
+                                        <button className="w-full bg-[#003366] hover:bg-black text-white font-bold py-5 px-8 rounded-sm shadow-xl hover:shadow-2xl transition-all duration-300 uppercase tracking-widest text-xs flex items-center justify-center gap-3 group relative overflow-hidden">
+                                            <span className="relative z-10 flex items-center gap-2">
+                                                Enviar Mensaje Profesional <span className="text-brand-primary group-hover:translate-x-1 transition-transform">➤</span>
+                                            </span>
+                                        </button>
+                                        <p className="text-center text-[10px] text-gray-400 mt-4 uppercase tracking-widest">
+                                            <ShieldAlert size={12} className="inline mr-1 -mt-0.5" />
+                                            Su información está protegida por secreto profesional
+                                        </p>
                                     </div>
                                 </form>
                             </Reveal>

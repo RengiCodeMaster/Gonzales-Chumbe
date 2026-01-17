@@ -81,8 +81,14 @@ export const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onClose }
                 </div>
 
                 {/* Content Section - Light Theme */}
-                <div className="bg-white text-brand-dark py-20 lg:py-32">
-                    <div className="container mx-auto px-6 lg:px-12">
+                <div className="bg-white text-brand-dark py-20 lg:py-32 relative overflow-hidden">
+                    {/* Elegant Architectural Texture Background */}
+                    <div
+                        className="absolute inset-0 bg-repeat opacity-40 mix-blend-multiply pointer-events-none z-0"
+                        style={{ backgroundImage: "url('/images/team-bg-texture.png')", backgroundSize: '600px' }}
+                    ></div>
+
+                    <div className="container mx-auto px-6 lg:px-12 relative z-10">
                         <div className="flex flex-col lg:flex-row gap-16">
 
                             {/* Left: Detailed Description */}
@@ -132,18 +138,36 @@ export const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onClose }
                                 </div>
 
                                 <Reveal delay={500} width="100%">
-                                    <div className="mt-12 bg-brand-primary text-white p-8 rounded-sm text-center shadow-lg relative overflow-hidden hover:scale-[1.02] transition-transform duration-300">
-                                        {/* Subtle Noise for texture on CTA */}
-                                        <div className="absolute inset-0 opacity-[0.2]" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E")` }}></div>
+                                    <div className="mt-12 bg-white border border-gray-100 p-10 rounded-sm text-center shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] relative overflow-hidden group hover:-translate-y-1 transition-transform duration-500">
 
-                                        <h4 className="text-2xl font-bold mb-2 relative z-10 block">¿Necesita asistencia en esta área?</h4>
-                                        <p className="text-blue-100 mb-6 relative z-10 block">La inmediatez es clave en procesos de {service.title.toLowerCase()}.</p>
-                                        <button
-                                            onClick={handleConsult}
-                                            className="inline-flex items-center justify-center px-8 py-4 bg-white text-brand-primary text-sm font-bold uppercase tracking-widest hover:bg-gray-100 transition-colors w-full relative z-10 shadow-md"
-                                        >
-                                            Solicitar Consulta Urgente <ArrowRight size={18} className="ml-2" />
-                                        </button>
+                                        {/* Elegant Top Accent Line (Matches Navbar) */}
+                                        <div className="absolute top-0 left-0 w-full h-1.5 bg-[#003366]"></div>
+
+                                        {/* Background Watermark - "Not Dull" Element */}
+                                        <div className="absolute -bottom-8 -right-8 text-gray-50 rotate-12 opacity-50 transition-transform group-hover:scale-110 duration-700 pointer-events-none">
+                                            <ShieldAlert size={180} strokeWidth={1} />
+                                        </div>
+
+                                        <div className="relative z-10">
+                                            <h4 className="text-3xl font-bold text-brand-dark mb-3 font-serif-accent">
+                                                ¿Necesita asistencia inmediata?
+                                            </h4>
+
+                                            <p className="text-gray-500 text-lg mb-8 max-w-lg mx-auto leading-relaxed">
+                                                La inmediatez es clave en procesos de {service.title.toLowerCase()}.
+                                                <span className="block mt-2 font-medium text-[#003366] uppercase text-xs tracking-widest">
+                                                    ● Agenda prioritaria disponible hoy
+                                                </span>
+                                            </p>
+
+                                            <button
+                                                onClick={handleConsult}
+                                                className="inline-flex items-center justify-center px-10 py-5 bg-[#003366] text-white text-sm font-bold uppercase tracking-widest hover:bg-black transition-colors shadow-xl hover:shadow-2xl min-w-[280px] group-hover:scale-105 duration-300"
+                                            >
+                                                Solicitar Consulta Urgente
+                                                <ArrowRight size={18} className="ml-3 group-hover:translate-x-1 transition-transform" />
+                                            </button>
+                                        </div>
                                     </div>
                                 </Reveal>
                             </div>

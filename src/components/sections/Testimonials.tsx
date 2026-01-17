@@ -50,16 +50,12 @@ export const Testimonials: React.FC = () => {
   };
 
   return (
-    <section className="py-24 relative overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=2000"
-          alt="Background"
-          className="w-full h-full object-cover opacity-10"
-        />
-        <div className="absolute inset-0 bg-[#F5F5F4]/90"></div>
-      </div>
+    <section className="py-24 relative overflow-hidden bg-[#FAFAF9]">
+      {/* Elegant Architectural Texture Background */}
+      <div
+        className="absolute inset-0 bg-repeat opacity-40 mix-blend-multiply pointer-events-none z-0"
+        style={{ backgroundImage: "url('/images/team-bg-texture.png')", backgroundSize: '600px' }}
+      ></div>
 
       {/* Decoration */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold/10 rounded-full blur-3xl -mr-12 -mt-12 pointer-events-none z-10"></div>

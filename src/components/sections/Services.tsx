@@ -19,16 +19,12 @@ export const Services: React.FC<ServicesProps> = ({ onOpenService }) => {
     };
 
     return (
-        <section id={SectionId.SERVICES} className="py-32 relative border-t border-gray-200">
-            {/* Background Image with Overlay */}
-            <div className="absolute inset-0 z-0">
-                <img
-                    src="https://images.unsplash.com/photo-1505664194779-8beaceb930b5?auto=format&fit=crop&q=80&w=2000"
-                    alt="Legal Architecture"
-                    className="w-full h-full object-cover opacity-10"
-                />
-                <div className="absolute inset-0 bg-[#F5F5F4]/95"></div>
-            </div>
+        <section id={SectionId.SERVICES} className="py-32 relative border-t border-gray-200 bg-[#FAFAF9] overflow-hidden">
+            {/* Elegant Architectural Texture Background */}
+            <div
+                className="absolute inset-0 bg-repeat opacity-40 mix-blend-multiply pointer-events-none z-0"
+                style={{ backgroundImage: "url('/images/team-bg-texture.png')", backgroundSize: '600px' }}
+            ></div>
 
 
             <div className="container mx-auto px-6 lg:px-12 relative z-10">
