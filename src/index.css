@@ -5,25 +5,26 @@
 @layer base {
   body {
     background-color: #ffffff;
-    color: #1e293b;
+    color: #18181b;
+    /* Zinc 900 */
     overflow-x: hidden;
   }
 
+  /* Headings Base Styles */
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    font-family: 'Playfair Display', serif;
-    /* Removed forced heavy weight to allow text-gray-500 etc to work */
+    font-family: 'Roboto', sans-serif;
     @apply font-bold tracking-tight;
   }
 }
 
 @layer utilities {
   .font-serif-accent {
-    font-family: 'Playfair Display', serif !important;
+    font-family: 'Roboto', sans-serif !important;
     font-style: normal !important;
   }
 

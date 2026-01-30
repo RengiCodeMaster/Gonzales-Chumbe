@@ -8,22 +8,22 @@ export default {
         extend: {
             colors: {
                 brand: {
-                    darker: '#020617', // Slate 950 (Almost Black) - Text
-                    dark: '#1e293b', // Slate 800 - Headings
-                    primary: '#1e3a8a', // Blue 900 (Classic Navy Blue) - Primary Action
-                    secondary: '#475569', // Slate 600 - Secondary Text
-                    accent: '#94a3b8', // Slate 400 - Silver Light
-                    gold: '#64748b', // Slate 500 (Steel/Silver) - Replaces Gold for Institutional Look
+                    darker: '#0a0a0a', // Neutral 950 (Fondo General)
+                    dark: '#171717', // Neutral 900 (Fondo Secundario)
+                    primary: '#09090b', // Black (Botones Principales / Texto Fuerte)
+                    secondary: '#57534e', // Stone 600 (Texto Secundario - Cálido)
+                    accent: '#D4AF37', // METALLIC GOLD (Acento Principal - "Vida")
+                    gold: '#C5A572', // Vegas Gold (Subtítulos / Detalles sutiles)
                     surface: '#ffffff',
-                    surfaceAlt: '#f8fafc', // Slate 50 (Fog Grey)
-                    card: '#ffffff', // White cards
-                    border: '#e2e8f0'
+                    surfaceAlt: '#fafaf9', // Stone 50 (Fondos Claros cálidos)
+                    card: '#ffffff',
+                    border: '#e7e5e4' // Stone 200
                 }
             },
             fontFamily: {
-                sans: ['"Lato"', 'sans-serif'],
-                serif: ['"Playfair Display"', 'serif'],
-                display: ['"Playfair Display"', 'serif'],
+                sans: ['"Roboto"', 'sans-serif'],
+                serif: ['"Roboto"', 'serif'], // User requested Roboto for everything
+                display: ['"Roboto"', 'sans-serif'], // User requested Roboto for everything
             },
             animation: {
                 'fade-in-up': 'fadeInUp 0.8s ease-out forwards',

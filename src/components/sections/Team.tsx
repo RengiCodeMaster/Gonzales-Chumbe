@@ -1,224 +1,194 @@
 import React from 'react';
 import { SectionId } from '../../types';
-import { Award, Linkedin, Mail, ArrowUpRight, GraduationCap, Scale, BookOpen } from 'lucide-react';
 import { Reveal } from '../ui/Reveal';
 
 const associates = [
     {
-        name: "Dra. María Fernández",
-        role: "Derecho Penal Económico",
-        desc: "Ex-Fiscal con 15 años de experiencia en delitos tributarios y lavado de activos.",
-        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+        name: "Dra. Katherin Montalvo Paraguay",
+        role: "Abogada Asociada",
+        desc: "C.A.H. 4297. Especialista en litigación estratégica y defensa legal.",
+        image: "/images/team-katherin.jpg"
     },
     {
-        name: "Dr. Alejandro Ruiz",
-        role: "Cibercrimen & Evidencia Digital",
-        desc: "Especialista certificado en recolección de prueba digital y delitos informáticos.",
-        image: "https://images.unsplash.com/photo-1556157382-97eda2d62296?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+        name: "Dra. Andrea Preguntegui Rodríguez",
+        role: "Abogada Asociada",
+        desc: "C.A.H. 4728. Especialista en Derecho Procesal y gestión de conflictos.",
+        image: "/images/team-andrea.jpg"
     },
     {
-        name: "Dr. Roberto Méndez",
-        role: "Litigio Complejo & Casación",
-        desc: "Doctor en Derecho. Encargado de la estrategia recursiva ante la Corte Suprema.",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+        name: "Practicante Legal",
+        role: "Practicante Pre-Profesional",
+        desc: "Talento joven de alto rendimiento en últimos ciclos. Apoyo técnico en procuraduría y análisis de casos.",
+        image: "/images/team-assistant.jpg"
     }
 ];
 
 export const Team: React.FC = () => {
     return (
-        <section id={SectionId.TEAM} className="pt-32 pb-24 bg-[#FAFAF9] relative overflow-hidden border-t border-gray-200">
-            {/* Elegant Architectural Texture Background */}
-            <div
-                className="absolute inset-0 bg-repeat opacity-40 mix-blend-multiply pointer-events-none z-0"
-                style={{ backgroundImage: "url('/images/team-bg-texture.png')", backgroundSize: '600px' }}
-            ></div>
-
-
-            {/* Background decoration - Radial Light */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(255,255,255,0.6)_0%,transparent_70%)] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
-
+        <section id={SectionId.TEAM} className="pt-0 pb-24 md:py-24 relative overflow-hidden">
             <div className="container mx-auto px-6 lg:px-12 relative z-10">
 
-                {/* Section Header */}
-                <div className="mb-8 text-center max-w-3xl mx-auto relative">
-                    {/* Watermark Text */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full select-none pointer-events-none z-0 overflow-hidden flex justify-center items-center">
-                        <span className="text-[4rem] md:text-[7rem] font-black text-gray-300/30 uppercase tracking-widest">
-                            Expertise
-                        </span>
+                {/* 0. TEAM GROUP PHOTO - HERO STYLE */}
+                <div className="mb-20 relative text-center">
+                    <Reveal>
+                        <div className="relative z-10 flex flex-col items-center">
+                            {/* Transparent Image - Centered & Large */}
+                            <div className="relative w-full max-w-6xl mx-auto z-20">
+                                <img
+                                    src="/images/team-new-header.png"
+                                    alt="Equipo Legal Gonzales Chumbe"
+                                    className="w-[140%] max-w-none -ml-[20%] -mt-12 md:mt-0 md:w-auto md:max-w-full md:ml-auto h-auto max-h-[550px] mx-auto object-contain drop-shadow-2xl translate-y-4"
+                                />
+                            </div>
+
+                            {/* Text Content - Seamless Integration */}
+                            <div className="relative z-30 w-full max-w-3xl -mt-16">
+                                <div className="pt-12 pb-8 px-4">
+                                    <span className="inline-block py-2 px-6 rounded-sm bg-brand-dark text-white text-[10px] font-bold uppercase tracking-[0.25em] mb-6 shadow-xl">
+                                        Excelencia Profesional
+                                    </span>
+                                    <h1 className="text-4xl md:text-5xl font-serif-accent font-bold text-brand-dark mb-4">
+                                        Nuestro Equipo
+                                    </h1>
+                                    <p className="text-gray-500 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+                                        Un cuerpo de abogados penalistas elegidos por su trayectoria, ética y capacidad técnica para resolver conflictos de alta complejidad.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </Reveal>
+
+                    {/* Background Decoration */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-radial from-brand-accent/5 to-transparent pointer-events-none z-0"></div>
+                </div>
+
+                {/* Elegant Separator */}
+                <div className="flex justify-center mb-32">
+                    <div className="w-px h-24 bg-gradient-to-b from-transparent via-brand-dark/20 to-transparent"></div>
+                </div>
+
+                {/* 1. SOCIO FUNDADOR SECTION */}
+                <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24 mb-32">
+                    {/* Left: Text Content - Same as before */}
+                    <div className="w-full lg:w-1/2 order-2 lg:order-1">
+                        <Reveal>
+                            <span className="inline-block border border-brand-dark px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest text-brand-dark mb-6">
+                                Abogado Colegiado C.A.H. 1661
+                            </span>
+                            <h2 className="text-5xl md:text-7xl font-serif-accent font-bold text-brand-dark mb-8 leading-tight">
+                                Dr. José Luis<br />Gonzáles Chumbe.
+                            </h2>
+
+                            <blockquote className="text-2xl md:text-3xl font-serif-accent italic text-gray-500 mb-8 leading-snug">
+                                "Más de 20 años de trayectoria defendiendo derechos y resolviendo conflictos en Huánuco y Tingo María."
+                            </blockquote>
+
+                            <div className="text-gray-600 text-sm md:text-base leading-relaxed space-y-6 mb-12 font-medium max-w-xl">
+                                <p>
+                                    Con una sólida carrera iniciada en 2002, el Dr. Gonzáles Chumbe se ha consolidado como un referente de autoridad legal en la región. Su práctica combina la firmeza del litigio penal con la sofisticación de la negociación estratégica.
+                                </p>
+                                <p>
+                                    Especialista certificado por la <strong>Pontificia Universidad Católica del Perú (PUCP)</strong> en Conciliación y Arbitraje, ofrece alternativas eficientes al proceso judicial, además de una defensa constitucional implacable respaldada por reconocimientos institucionales.
+                                </p>
+                            </div>
+
+                            {/* Credentials List */}
+                            <div className="grid grid-cols-2 gap-8 border-t border-gray-200 pt-8">
+                                <div>
+                                    <h5 className="font-bold text-xs uppercase tracking-widest text-brand-dark mb-4">Certificaciones PUCP</h5>
+                                    <ul className="text-xs text-brand-secondary space-y-2 font-medium">
+                                        <li className="flex items-center gap-2"><div className="w-1 h-1 bg-brand-primary rounded-full"></div>Conciliación Extrajudicial</li>
+                                        <li className="flex items-center gap-2"><div className="w-1 h-1 bg-brand-primary rounded-full"></div>Arbitraje Nacional e Int.</li>
+                                        <li className="flex items-center gap-2"><div className="w-1 h-1 bg-brand-primary rounded-full"></div>Derecho Civil Patrimonial</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5 className="font-bold text-xs uppercase tracking-widest text-brand-dark mb-4">Áreas de Dominio</h5>
+                                    <ul className="text-xs text-gray-500 space-y-2">
+                                        <li className="flex items-center gap-2"><div className="w-1 h-1 bg-brand-primary rounded-full"></div>Defensa Penal y Constitucional</li>
+                                        <li className="flex items-center gap-2"><div className="w-1 h-1 bg-brand-primary rounded-full"></div>Asesoría Corporativa Local</li>
+                                        <li className="flex items-center gap-2"><div className="w-1 h-1 bg-brand-primary rounded-full"></div>Litigio de Alta Complejidad</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </Reveal>
                     </div>
 
-                    <Reveal width="100%" className="relative z-10 flex flex-col items-center">
-                        {/* Team Group Image - New Integration */}
-                        <div className="relative w-full max-w-2xl mx-auto -mb-12 mt-[-60px] z-0 opacity-90 hover:opacity-100 transition-opacity duration-500">
-                            <img
-                                src="/images/team-group.png"
-                                alt="Equipo Legal Gonzales Chumbe"
-                                className="w-full h-auto object-contain drop-shadow-xl"
-                            />
-                        </div>
+                    {/* Right: Founder Portrait */}
+                    <div className="w-full lg:w-1/2 order-1 lg:order-2">
+                        <Reveal delay={200}>
+                            <div className="relative aspect-[3/4] w-full bg-gray-200 rounded-sm overflow-hidden flex items-end shadow-2xl group">
+                                <img
+                                    src="/images/dr-chumbe-portrait.jpg"
+                                    alt="Dr. Jose L. Gonzales Chumbe"
+                                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                                />
+                                {/* Vertical Text Indicator */}
+                                <div className="absolute left-6 top-1/2 -translate-y-1/2 -rotate-90 origin-left z-20 mix-blend-difference">
+                                    <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-white/90">Líder y Fundador - Est. 1995</span>
+                                </div>
+                            </div>
+                        </Reveal>
+                    </div>
+                </div>
 
-                        <div className="relative z-10 bg-white/60 backdrop-blur-sm px-6 py-4 rounded-xl shadow-sm border border-white/50 inline-block mb-6">
-                            <span className="text-brand-primary font-bold tracking-widest uppercase text-xs block">Excelencia Profesional</span>
-                        </div>
-
-                        <h2 className="text-4xl md:text-5xl font-bold text-brand-dark mb-6 relative z-10">
-                            Nuestro <span className="font-serif-accent text-brand-secondary">Equipo</span>
-                        </h2>
-                        <p className="text-gray-500 text-lg leading-relaxed max-w-2xl mx-auto relative z-10">
-                            Un cuerpo de abogados penalistas elegidos por su trayectoria, ética y capacidad técnica para resolver conflictos de alta complejidad.
+                {/* 2. NUESTRO EQUIPO SECTION (Redesigned) */}
+                <div className="mb-20 text-center max-w-3xl mx-auto">
+                    <Reveal>
+                        <h2 className="text-4xl font-serif-accent font-bold text-brand-dark mb-4">Nuestro Equipo</h2>
+                        <p className="text-gray-500 text-lg font-serif-accent italic">
+                            Un equipo multidisciplinario de excelencia, comprometido con la defensa técnica y humana.
                         </p>
                     </Reveal>
                 </div>
 
-                <div className="mb-24 relative bg-white border border-gray-100 rounded-[2rem] p-8 md:p-12 lg:p-16 overflow-hidden shadow-2xl">
-                    {/* Texture Overlay */}
-                    <div className="absolute inset-0 opacity-30" style={{ backgroundImage: 'radial-gradient(#e2e8f0 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
-
-                    <div className="flex flex-col lg:flex-row items-start gap-12 relative z-10">
-
-                        {/* Founder Image - Editorial Style (Portrait) */}
-                        <div className="w-full lg:w-1/3 flex-shrink-0">
-                            <Reveal width="100%" direction="right" delay={100}>
-                                <div className="relative aspect-[3/4] max-h-[450px] w-full max-w-[340px] mx-auto lg:mx-0 rounded-xl overflow-hidden shadow-lg group">
-                                    {/* Cinematic Color Effect: Slightly warm/dimmed initially -> Full bright on hover */}
-                                    <img
-                                        src="/images/dr-chumbe.jpg"
-                                        alt="Dr. Gonzales Chumbe"
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                    />
-                                    {/* Small Badge */}
-                                    <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-sm border-l-2 border-brand-primary shadow-lg">
-                                        <span className="text-[10px] font-bold text-brand-dark uppercase tracking-widest block">Socio Fundador</span>
-                                    </div>
-                                </div>
-                            </Reveal>
-                        </div>
-
-                        {/* Founder Text - Bio & Credentials */}
-                        <div className="w-full lg:w-2/3 text-center lg:text-left pt-4">
-                            <Reveal width="100%" delay={200}>
-                                <h2 className="text-3xl md:text-5xl font-serif-accent font-bold text-brand-dark mb-2">
-                                    Dr. Gonzales Chumbe
-                                </h2>
-                                <p className="text-brand-primary text-sm font-bold uppercase tracking-widest mb-8">
-                                    Director de Estrategia Legal
-                                </p>
-                            </Reveal>
-
-                            <Reveal width="100%" delay={300}>
-                                <div className="max-w-3xl lg:mx-0 mx-auto">
-                                    {/* Professional Bio Paragraphs instead of Quote */}
-                                    <div className="text-gray-600 text-base leading-relaxed space-y-4 mb-10 text-justify lg:text-left font-light border-l border-brand-primary/30 pl-0 lg:pl-6">
-                                        <p>
-                                            "Llevo más de 30 años en los tribunales y he visto de todo. Sé que cuando un cliente llega a mi oficina, no trae solo un expediente; trae su vida, su familia y su libertad en juego."
-                                        </p>
-                                        <p>
-                                            "Mi trabajo no es juzgarlo. Mi trabajo es usar cada artículo de la ley, cada error del fiscal y cada prueba técnica para sacarlo del problema. Aquí no vendemos humo; diseñamos estrategias para ganar."
-                                        </p>
-                                    </div>
-                                </div>
-                            </Reveal>
-
-                            <Reveal width="100%" delay={400}>
-                                {/* Detailed Credentials Grid */}
-                                <div className="grid sm:grid-cols-2 gap-y-6 gap-x-8 border-t border-gray-100 pt-8">
-                                    <div className="flex items-start gap-4 p-3 hover:bg-gray-50 rounded transition-colors">
-                                        <div className="p-2 bg-brand-surfaceAlt rounded text-brand-primary">
-                                            <GraduationCap size={20} />
-                                        </div>
-                                        <div className="text-left">
-                                            <h4 className="text-brand-dark font-bold text-sm">Doctor en Derecho</h4>
-                                            <p className="text-xs text-gray-500 mt-0.5">Universidad Nacional Mayor de San Marcos</p>
-                                        </div>
-                                    </div>
-
-                                    <div className="flex items-start gap-4 p-3 hover:bg-gray-50 rounded transition-colors">
-                                        <div className="p-2 bg-brand-surfaceAlt rounded text-brand-primary">
-                                            <Scale size={20} />
-                                        </div>
-                                        <div className="text-left">
-                                            <h4 className="text-brand-dark font-bold text-sm">Especialista en Casación</h4>
-                                            <p className="text-xs text-gray-500 mt-0.5">Recursos ante la Corte Suprema</p>
-                                        </div>
-                                    </div>
-
-                                    <div className="flex items-start gap-4 p-3 hover:bg-gray-50 rounded transition-colors">
-                                        <div className="p-2 bg-brand-surfaceAlt rounded text-brand-primary">
-                                            <BookOpen size={20} />
-                                        </div>
-                                        <div className="text-left">
-                                            <h4 className="text-brand-dark font-bold text-sm">Docencia Universitaria</h4>
-                                            <p className="text-xs text-gray-500 mt-0.5">Profesor Titular de Derecho Procesal</p>
-                                        </div>
-                                    </div>
-
-                                    <div className="flex items-start gap-4 p-3 hover:bg-gray-50 rounded transition-colors">
-                                        <div className="p-2 bg-brand-surfaceAlt rounded text-brand-primary">
-                                            <Award size={20} />
-                                        </div>
-                                        <div className="text-left">
-                                            <h4 className="text-brand-dark font-bold text-sm">Membresías</h4>
-                                            <p className="text-xs text-gray-500 mt-0.5">Colegio de Abogados de Lima & Callao</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Reveal>
-                        </div>
-                    </div>
-                </div>
-
-                {/* --- ASSOCIATES SECTION (Modern Grid) --- */}
-                <div className="mb-12 flex flex-col md:flex-row justify-between items-end border-b border-gray-100 pb-8">
-                    <Reveal width="100%">
-                        <h3 className="text-3xl font-bold text-brand-dark">Equipo Asociado</h3>
-                        <p className="text-gray-500 mt-2">Especialización técnica por área de práctica.</p>
-                    </Reveal>
-                </div>
-
-                <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                {/* Team Grid - "Cinematic Cards" Layout */}
+                <div className="grid md:grid-cols-3 gap-6 lg:gap-10 max-w-7xl mx-auto">
                     {associates.map((member, idx) => (
-                        <Reveal key={idx} delay={idx * 150} className="h-full">
-                            <div className="group bg-white rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 border border-gray-100 h-full flex flex-col max-w-xs mx-auto w-full">
+                        <Reveal key={idx} delay={idx * 150} className="w-full h-full">
+                            <div className="group relative w-full h-[600px] overflow-hidden rounded-sm shadow-xl cursor-pointer">
 
-                                {/* Image Container - Smaller height (h-64) and empty placeholder */}
-                                <div className="relative h-64 overflow-hidden bg-gray-100 flex items-center justify-center">
-                                    {/* Placeholder Avatar */}
-                                    <div className="text-gray-300 group-hover:text-gray-400 transition-colors">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-                                            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-                                            <circle cx="12" cy="7" r="4" />
-                                        </svg>
-                                    </div>
-
-                                    {/* Gradient Overlay */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-                                    {/* Social Icons Reveal */}
-                                    <div className="absolute top-3 right-3 flex flex-col gap-2 translate-x-10 group-hover:translate-x-0 transition-transform duration-300">
-                                        <button className="p-1.5 bg-white/90 backdrop-blur rounded-full text-brand-dark hover:bg-brand-primary hover:text-white transition-colors shadow-sm">
-                                            <Linkedin size={14} />
-                                        </button>
-                                        <button className="p-1.5 bg-white/90 backdrop-blur rounded-full text-brand-dark hover:bg-brand-primary hover:text-white transition-colors shadow-sm">
-                                            <Mail size={14} />
-                                        </button>
-                                    </div>
+                                {/* Full Background Image - Object Cover for Maximum Size */}
+                                <div className="absolute inset-0 bg-gray-200">
+                                    <img
+                                        src={member.image}
+                                        alt={member.name}
+                                        className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                                    />
                                 </div>
 
-                                {/* Content */}
-                                <div className="p-5 flex flex-col flex-grow relative bg-white group-hover:bg-gray-50 transition-colors">
-                                    <span className="text-[10px] font-bold text-brand-primary uppercase tracking-wider mb-1.5">{member.role}</span>
-                                    <h4 className="text-lg font-bold text-brand-dark mb-2">{member.name}</h4>
-                                    <p className="text-xs text-gray-500 leading-relaxed mb-0 flex-grow border-t border-gray-100 pt-3 mt-auto">
+                                {/* Gradient Overlay for Text Readability - Always visible at bottom */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 transition-opacity duration-300"></div>
+
+                                {/* Content Overlay */}
+                                <div className="absolute bottom-0 left-0 w-full p-8 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                                    <div className="border-l-2 border-brand-accent pl-4 mb-2">
+                                        <h3 className="text-2xl font-serif-accent font-bold text-white mb-1">{member.name}</h3>
+                                        <p className="text-brand-accent text-xs font-bold uppercase tracking-widest">{member.role}</p>
+                                    </div>
+                                    <p className="text-gray-300 text-sm leading-relaxed max-w-xs opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 transform translate-y-4 group-hover:translate-y-0">
                                         {member.desc}
                                     </p>
                                 </div>
+
+                                {/* Hover Border/Effect */}
+                                <div className="absolute inset-0 border border-white/0 group-hover:border-white/20 transition-colors duration-500 pointer-events-none"></div>
                             </div>
                         </Reveal>
                     ))}
                 </div>
 
-            </div>
-        </section>
+                {/* Quote Bottom */}
+                <div className="mt-32 text-center max-w-4xl mx-auto">
+                    <Reveal delay={300}>
+                        <span className="text-6xl text-gray-200 font-serif-accent leading-none mb-6 block">"</span>
+                        <p className="text-2xl md:text-3xl font-serif-accent text-brand-dark leading-relaxed">
+                            "En la intersección de la tradición y la vanguardia, encontramos las soluciones legales que definen el futuro de nuestros clientes."
+                        </p>
+                    </Reveal>
+                </div>
+
+            </div >
+        </section >
     );
 };

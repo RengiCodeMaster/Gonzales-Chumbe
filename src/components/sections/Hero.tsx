@@ -4,43 +4,63 @@ import { SectionId } from '../../types';
 import { Reveal } from '../ui/Reveal';
 
 export const Hero: React.FC = () => {
+  const bgRef = React.useRef<HTMLImageElement>(null);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      if (bgRef.current) {
+        const scrolled = window.scrollY;
+        bgRef.current.style.transform = `translateY(${scrolled * 0.5}px)`;
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <section id={SectionId.HOME} className="relative w-full h-screen min-h-[600px] flex items-end pb-16 md:pb-24 bg-brand-dark overflow-hidden">
+    <section id={SectionId.HOME} className="relative w-full h-screen min-h-[600px] flex items-end pb-12 md:pb-24 bg-black overflow-hidden">
 
       {/* Background Image - Cinematic & Moody */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
-          alt="Oficina corporativa luminosa"
-          className="w-full h-full object-cover opacity-60 scale-105 animate-[pulse_10s_ease-in-out_infinite]"
+          ref={bgRef}
+          src="/images/hero-bg-main.jpg"
+          alt="Oficina Estudio Gonzales Chumbe"
+          className="w-full h-full object-cover object-[80%_top] md:object-top opacity-100 transition-transform duration-75 ease-out will-change-transform"
         />
-        {/* Gradient Overlay - Subtle vignette */}
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/40 to-transparent"></div>
+        {/* General Overlay: Darkens the whole bright image for text readability */}
+        <div className="absolute inset-0 bg-black/30 mix-blend-multiply"></div>
+
+        {/* Navbar Protection Gradient: Strong dark fade from top for menu visibility */}
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/90 via-black/50 to-transparent z-10"></div>
+
+        {/* Bottom Gradient: For Hero Text - Stronger on mobile to separate text from image */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent md:from-black/90 md:via-black/20"></div>
       </div>
 
-      <div className="container mx-auto px-6 lg:px-12 relative z-20 flex flex-col md:flex-row justify-between items-end gap-12">
+      <div className="container mx-auto px-4 md:px-12 relative z-20 flex flex-col md:flex-row justify-between items-end gap-12">
 
         {/* Asymmetrical Layout - Bottom Left Focus */}
-        <div className="max-w-4xl w-full">
+        <div className="w-full md:max-w-4xl">
 
           <Reveal delay={400}>
-            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-7xl font-bold text-white leading-tight mb-6 tracking-tight">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-7xl font-bold text-white leading-tight mb-4 md:mb-6 tracking-tight">
               Defensa Penal <br />
               <span className="text-gray-200">Estratégica.</span>
             </h1>
           </Reveal>
 
           <Reveal delay={500} width="100%">
-            <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl leading-relaxed border-l-4 border-brand-primary pl-6 font-medium">
+            <p className="text-sm md:text-xl text-gray-200 mb-6 md:mb-8 max-w-full leading-relaxed border-l-4 border-brand-primary pl-4 md:pl-6 font-medium">
               "Nadie está preparado para un proceso penal. Nosotros sí. Déjenos la carga legal a nosotros y ocúpese de su vida."
             </p>
           </Reveal>
 
           <Reveal delay={600} width="100%">
-            <div className="flex flex-col sm:flex-row gap-4 md:gap-5 w-full sm:w-auto">
+            <div className="flex flex-col gap-3 w-full sm:w-auto sm:flex-row md:gap-5">
               <Button
                 variant="primary"
-                className="rounded-sm px-8 py-4 w-full sm:w-auto bg-brand-primary hover:bg-white hover:text-brand-dark border border-transparent hover:border-white transition-all uppercase tracking-widest text-xs font-bold"
+                className="rounded-sm px-4 py-3 md:px-8 md:py-4 w-full sm:w-auto bg-black hover:bg-neutral-900 text-white border border-transparent hover:border-white transition-all uppercase tracking-widest text-[10px] md:text-xs font-bold shadow-xl whitespace-normal text-center"
                 onClick={() => document.getElementById(SectionId.CONTACT)?.scrollIntoView({ behavior: 'auto' })}
               >
                 Hable con un Abogado
@@ -48,7 +68,7 @@ export const Hero: React.FC = () => {
 
               <Button
                 variant="outline"
-                className="rounded-sm px-8 py-4 border-white text-white hover:bg-white hover:text-brand-dark w-full sm:w-auto uppercase tracking-widest text-xs font-bold !bg-transparent hover:!bg-white"
+                className="rounded-sm px-4 py-3 md:px-8 md:py-4 border-white text-white hover:bg-white hover:!text-black w-full sm:w-auto uppercase tracking-widest text-[10px] md:text-xs font-bold !bg-transparent hover:!bg-white whitespace-normal text-center"
                 onClick={() => document.getElementById(SectionId.ABOUT)?.scrollIntoView({ behavior: 'auto' })}
               >
                 Conozca el Estudio

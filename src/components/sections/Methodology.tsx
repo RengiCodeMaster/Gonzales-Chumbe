@@ -32,12 +32,8 @@ export const Methodology: React.FC = () => {
 
   return (
     // Stone 50 Background with Noise Texture
-    <section className="py-24 bg-[#FAFAF9] text-brand-dark border-b border-gray-100 relative overflow-hidden">
-      {/* Elegant Architectural Texture Background */}
-      <div
-        className="absolute inset-0 bg-repeat opacity-40 mix-blend-multiply pointer-events-none z-0"
-        style={{ backgroundImage: "url('/images/team-bg-texture.png')", backgroundSize: '600px' }}
-      ></div>
+    // Stone 50 Background with Noise Texture
+    <section className="py-24 text-brand-dark border-b border-gray-100 relative overflow-hidden">
 
 
 
@@ -58,7 +54,7 @@ export const Methodology: React.FC = () => {
             </Reveal>
           </div>
           <Reveal direction="left" delay={400}>
-            <p className="text-brand-secondary max-w-md mt-6 md:mt-0 text-left md:text-right">
+            <p className="text-[#52525b] max-w-md mt-6 md:mt-0 text-left md:text-right">
               Sin improvisaciones. Tenemos un plan claro para protegerlo desde el primer día.
             </p>
           </Reveal>
@@ -66,19 +62,19 @@ export const Methodology: React.FC = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
           {/* Connecting Line (Desktop) - Silver */}
-          <div className="hidden lg:block absolute top-12 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent z-0"></div>
+          <div className="hidden lg:block absolute top-12 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-accent/40 to-transparent z-0"></div>
 
           {steps.map((step, idx) => (
             <Reveal key={idx} delay={idx * 200} className="relative z-10 h-full">
               {/* Cards changed to White for contrast against Stone background */}
               <div className="group h-full bg-white p-6 rounded-sm border border-gray-200 hover:border-brand-primary/50 transition-all duration-500 hover:-translate-y-2 shadow-sm hover:shadow-xl relative z-10">
-                <div className="w-16 h-16 bg-white border border-gray-200 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-primary group-hover:border-brand-primary transition-colors duration-500 shadow-sm relative z-20">
-                  <step.icon size={24} className="text-brand-primary group-hover:text-white transition-colors duration-300" strokeWidth={1.5} />
+                <div className="w-16 h-16 bg-white border border-gray-100 rounded-full flex items-center justify-center mb-6 group-hover:border-brand-accent group-hover:scale-110 transition-all duration-500 shadow-sm relative z-20">
+                  <step.icon size={24} className="text-gray-400 group-hover:text-brand-accent transition-colors duration-300" strokeWidth={1.5} />
                 </div>
 
                 <div className="text-left">
-                  <span className="text-4xl font-bold text-gray-200 mb-4 block font-serif-accent absolute top-4 right-4 group-hover:text-brand-primary/10 transition-colors">{step.id}</span>
-                  <h3 className="text-lg font-bold mb-3 text-brand-dark group-hover:text-brand-primary transition-colors">{step.title}</h3>
+                  <span className="text-4xl font-bold text-gray-200 mb-4 block font-serif-accent absolute top-4 right-4 group-hover:text-[#09090b]/10 transition-colors">{step.id}</span>
+                  <h3 className="text-lg font-bold mb-3 text-brand-dark group-hover:text-[#09090b] transition-colors">{step.title}</h3>
                   <p className="text-sm text-gray-500 leading-relaxed group-hover:text-brand-secondary">
                     {step.desc}
                   </p>

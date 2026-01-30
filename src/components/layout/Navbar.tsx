@@ -79,7 +79,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenService, onCloseService })
   return (
     <nav
       className={`fixed w-full z-50 h-14 md:h-16 lg:h-20 flex items-center ${isScrolled
-        ? 'bg-[#0f172a]/90 backdrop-blur-md border-b border-white/10 shadow-2xl' // Azul Profundo Difuminado
+        ? 'bg-[#09090b]/90 backdrop-blur-md border-b border-white/10 shadow-2xl' // Negro Premium Difuminado
         : 'bg-transparent border-b border-transparent'
         }`}
     >
@@ -100,7 +100,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenService, onCloseService })
             <h1 className="text-xs md:text-sm lg:text-sm uppercase tracking-wider font-bold leading-tight text-white">
               Gonzales Chumbe
             </h1>
-            <span className={`text-[7px] md:text-[8px] lg:text-[9px] uppercase tracking-[0.2em] mt-0.5 transition-colors duration-300 ${isScrolled ? 'text-blue-200' : 'text-gray-300'
+            <span className={`text-[7px] md:text-[8px] lg:text-[9px] uppercase tracking-[0.2em] mt-0.5 transition-colors duration-300 ${isScrolled ? 'text-zinc-400' : 'text-gray-300'
               }`}>
               Estudio Jurídico | Abogados Penalistas
             </span>
@@ -109,8 +109,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenService, onCloseService })
 
         {/* Desktop Nav - Changed hidden lg:flex to hidden md:flex */}
         <div className="hidden md:flex items-center space-x-4 lg:space-x-8 xl:space-x-10">
-          <button onClick={() => scrollToSection(SectionId.HOME)} className="nav-link">Inicio</button>
-          <button onClick={() => scrollToSection(SectionId.ABOUT)} className="nav-link">Firma</button>
+          <button onClick={() => scrollToSection(SectionId.HOME)} className="nav-link hover:text-brand-accent transition-colors">Inicio</button>
+          <button onClick={() => scrollToSection(SectionId.ABOUT)} className="nav-link hover:text-brand-accent transition-colors">Firma</button>
 
           {/* Services Dropdown */}
           <div
@@ -135,9 +135,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenService, onCloseService })
                   <button
                     key={service.id}
                     onClick={(e) => { e.stopPropagation(); handleServiceClick(service.id); }}
-                    className="flex items-start p-3 rounded hover:bg-gray-50 transition-colors text-left group"
+                    className="flex items-start p-3 rounded border-l-4 border-transparent hover:border-brand-primary hover:bg-gray-100 transition-all text-left group"
                   >
-                    <div className="mt-1 p-2 bg-brand-surfaceAlt rounded text-brand-primary group-hover:bg-brand-primary group-hover:text-white transition-colors">
+                    <div className="mt-1 p-2 bg-brand-surfaceAlt rounded text-brand-primary transition-colors">
                       <service.icon size={18} />
                     </div>
                     <div className="ml-3">
@@ -154,16 +154,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenService, onCloseService })
           <button onClick={() => scrollToSection(SectionId.CONTACT)} className="nav-link">Contacto</button>
         </div>
 
-        {/* CTA - Hidden on tablet/mobile, visible on large desktop */}
-        <div className="hidden xl:flex items-center">
-          <Button
-            variant={isScrolled ? 'white' : 'white'}
-            className={`px-8 py-3 text-xs font-bold tracking-widest ${isScrolled ? 'bg-white text-brand-primary hover:bg-blue-50' : ''}`}
-            onClick={() => scrollToSection(SectionId.CONTACT)}
-          >
-            Consulta Inicial
-          </Button>
-        </div>
+
 
         {/* Mobile Toggle - Changed lg:hidden to md:hidden */}
         <button
@@ -195,7 +186,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenService, onCloseService })
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-40 bg-[#0f172a] flex flex-col pt-32 px-6 overflow-y-auto animate-fade-in-up h-screen">
+        <div className="md:hidden fixed inset-0 z-40 bg-[#09090b] flex flex-col pt-32 px-6 overflow-y-auto animate-fade-in-up h-screen">
           <div className="space-y-6 pb-20">
             <button onClick={() => scrollToSection(SectionId.HOME)} className="mobile-link block w-full text-left">Inicio</button>
             <button onClick={() => scrollToSection(SectionId.ABOUT)} className="mobile-link block w-full text-left">La Firma</button>
@@ -209,7 +200,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenService, onCloseService })
                 <span>Servicios</span>
                 <ChevronDown
                   size={24}
-                  className={`transition-transform duration-300 ${mobileServicesOpen ? 'rotate-180' : ''} text-blue-300`}
+                  className={`transition-transform duration-300 ${mobileServicesOpen ? 'rotate-180' : ''} text-zinc-400`}
                 />
               </button>
 
@@ -241,14 +232,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenService, onCloseService })
       )}
       <style>{`
           .mobile-link {
-              font-family: 'Playfair Display', serif;
+              font-family: 'Roboto', sans-serif;
               font-style: ;
               font-size: 1.75rem;
               color: white;
               transition: color 0.3s;
           }
           .mobile-link:hover {
-              color: #93c5fd;
+              color: #d4d4d8;
           }
       `}</style>
     </nav>

@@ -19,12 +19,7 @@ export const Services: React.FC<ServicesProps> = ({ onOpenService }) => {
     };
 
     return (
-        <section id={SectionId.SERVICES} className="py-32 relative border-t border-gray-200 bg-[#FAFAF9] overflow-hidden">
-            {/* Elegant Architectural Texture Background */}
-            <div
-                className="absolute inset-0 bg-repeat opacity-40 mix-blend-multiply pointer-events-none z-0"
-                style={{ backgroundImage: "url('/images/team-bg-texture.png')", backgroundSize: '600px' }}
-            ></div>
+        <section id={SectionId.SERVICES} className="py-32 relative border-t border-gray-200 overflow-hidden">
 
 
             <div className="container mx-auto px-6 lg:px-12 relative z-10">
@@ -77,8 +72,11 @@ export const Services: React.FC<ServicesProps> = ({ onOpenService }) => {
                                 {/* Content */}
                                 <div className="p-8 flex flex-col flex-grow relative">
                                     {/* Icon Floating */}
-                                    <div className="absolute -top-6 right-8 w-14 h-14 bg-brand-primary text-white rounded-xl shadow-lg flex items-center justify-center transform group-hover:rotate-6 transition-transform duration-300 overflow-hidden border-2 border-white">
-                                        <PremiumIcon icon={service.icon} size={28} className="w-full h-full p-3" />
+                                    {/* Icon Floating - Clean Style */}
+                                    <div className="absolute -top-10 right-8 w-16 h-16 bg-white text-brand-dark rounded-full shadow-lg flex items-center justify-center transition-transform duration-300 border border-gray-100 p-1">
+                                        <div className="w-full h-full bg-gray-50 rounded-full flex items-center justify-center">
+                                            <PremiumIcon icon={service.icon} size={24} strokeWidth={1.5} />
+                                        </div>
                                     </div>
 
                                     <h3 className="text-2xl font-bold text-brand-dark mb-2 mt-2 group-hover:text-brand-primary transition-colors">

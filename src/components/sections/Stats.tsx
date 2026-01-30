@@ -85,7 +85,7 @@ export const Stats: React.FC = () => {
       ></div>
 
       {/* Dark Overlay - Reduced opacity from 90% to 50% for clearer image */}
-      <div className="absolute inset-0 bg-[#0f172a]/50 z-10"></div>
+      <div className="absolute inset-0 bg-black/50 z-10"></div>
 
       <div className="container mx-auto px-6 lg:px-12 relative z-20">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-8">
@@ -107,7 +107,7 @@ export const Stats: React.FC = () => {
           </Reveal>
           <Reveal width="100%" delay={200}>
             <Counter
-              end={15}
+              end={4}
               suffix=""
               label="Especialistas de Élite"
               icon={<Users size={32} strokeWidth={2} />}

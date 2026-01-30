@@ -17,7 +17,7 @@ export const Reveal: React.FC<RevealProps> = ({
     duration = 600,
     direction = 'up',
     threshold = 0.15,
-    width = "fit-content"
+    width = "100%"
 }) => {
     const [isVisible, setIsVisible] = useState(false);
     const ref = useRef<HTMLDivElement>(null);
@@ -53,16 +53,16 @@ export const Reveal: React.FC<RevealProps> = ({
     };
 
     return (
-        <div
-            ref={ref}
-            className={`transition-all will-change-transform ease-out transform ${getTransformClass()} ${className}`}
-            style={{
-                transitionDuration: `${duration}ms`,
-                transitionDelay: `${delay}ms`,
-                width
-            }}
-        >
-            {children}
+        <div ref={ref} style={{ width }}>
+            <div
+                className={`transition-all will-change-transform ease-out transform ${getTransformClass()} ${className}`}
+                style={{
+                    transitionDuration: `${duration}ms`,
+                    transitionDelay: `${delay}ms`,
+                }}
+            >
+                {children}
+            </div>
         </div>
     );
 };

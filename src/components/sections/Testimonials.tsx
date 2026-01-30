@@ -50,22 +50,17 @@ export const Testimonials: React.FC = () => {
   };
 
   return (
-    <section className="py-24 relative overflow-hidden bg-[#FAFAF9]">
-      {/* Elegant Architectural Texture Background */}
-      <div
-        className="absolute inset-0 bg-repeat opacity-40 mix-blend-multiply pointer-events-none z-0"
-        style={{ backgroundImage: "url('/images/team-bg-texture.png')", backgroundSize: '600px' }}
-      ></div>
+    <section className="py-24 relative overflow-hidden">
 
       {/* Decoration */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold/10 rounded-full blur-3xl -mr-12 -mt-12 pointer-events-none z-10"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-primary/10 rounded-full blur-3xl -ml-12 -mb-12 pointer-events-none z-10"></div>
+      <div className="absolute top-0 right-0 w-64 h-64 bg-gray-200/50 rounded-full blur-3xl -mr-12 -mt-12 pointer-events-none z-10"></div>
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-gray-200/50 rounded-full blur-3xl -ml-12 -mb-12 pointer-events-none z-10"></div>
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
 
         <div className="text-center max-w-3xl mx-auto mb-12">
           <Reveal width="100%">
-            <span className="text-brand-primary font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Testimonios</span>
+            <span className="text-[#09090b] font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Testimonios</span>
           </Reveal>
           <Reveal delay={200} width="100%">
             <h2 className="text-3xl md:text-5xl font-bold text-brand-dark mb-6">
@@ -87,14 +82,14 @@ export const Testimonials: React.FC = () => {
             {/* Navigation Buttons */}
             <button
               onClick={handlePrev}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-gray-50 hover:bg-brand-primary hover:text-white flex items-center justify-center transition-all duration-300 z-20 group"
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-gray-50 hover:bg-[#09090b] hover:text-white flex items-center justify-center transition-all duration-300 z-20 group"
               aria-label="Anterior"
             >
               <ChevronLeft size={20} className="text-gray-400 group-hover:text-white" />
             </button>
             <button
               onClick={handleNext}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-gray-50 hover:bg-brand-primary hover:text-white flex items-center justify-center transition-all duration-300 z-20 group"
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-gray-50 hover:bg-[#09090b] hover:text-white flex items-center justify-center transition-all duration-300 z-20 group"
               aria-label="Siguiente"
             >
               <ChevronRight size={20} className="text-gray-400 group-hover:text-white" />
@@ -127,7 +122,7 @@ export const Testimonials: React.FC = () => {
                 <button
                   key={idx}
                   onClick={() => setCurrentIndex(idx)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${idx === currentIndex ? 'bg-brand-primary w-6' : 'bg-gray-200 hover:bg-gray-300'}`}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${idx === currentIndex ? 'bg-[#09090b] w-6' : 'bg-gray-200 hover:bg-gray-300'}`}
                   aria-label={`Ir al testimonio ${idx + 1}`}
                 />
               ))}
