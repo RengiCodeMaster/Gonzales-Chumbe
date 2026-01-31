@@ -4,16 +4,16 @@ import { Reveal } from '../ui/Reveal';
 
 const associates = [
     {
-        name: "Dra. Katherin Montalvo Paraguay",
+        name: "Abg. Katherin Montalvo Paraguay",
         role: "Abogada Asociada",
         desc: "C.A.H. 4297. Especialista en litigación estratégica y defensa legal.",
         image: "/images/team-katherin.jpg"
     },
     {
-        name: "Dra. Andrea Preguntegui Rodríguez",
+        name: "Abg. Andrea Preguntegui Rodríguez",
         role: "Abogada Asociada",
         desc: "C.A.H. 4728. Especialista en Derecho Procesal y gestión de conflictos.",
-        image: "/images/team-andrea.jpg"
+        image: "/images/team-andrea-updated.jpg"
     },
     {
         name: "Practicante Legal",
