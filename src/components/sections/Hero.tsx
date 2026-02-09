@@ -59,7 +59,7 @@ export const Hero: React.FC = () => {
 
           <Reveal delay={500} width="100%">
             <p className="text-sm md:text-xl text-gray-200 mb-6 md:mb-8 max-w-full leading-relaxed border-l-4 border-brand-primary pl-4 md:pl-6 font-medium">
-              "Nadie está preparado para un proceso penal. Nosotros sí. Déjenos la carga legal a nosotros y ocúpese de su vida."
+              "Que un proceso legal no detenga sus metas. Confíe su defensa en manos expertas y permítanos asumir la carga jurídica, para que pueda ocuparse de su proyecto de vida con toda tranquilidad."
             </p>
           </Reveal>
 
