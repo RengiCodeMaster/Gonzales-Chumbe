@@ -26,7 +26,7 @@ export const servicesData: ServiceDetail[] = [
     scenario: "Un litigio judicial puede ser costoso y eterno. El arbitraje es la vía inteligente para cerrar disputas.",
     description: "Especialistas en Conciliación Extrajudicial y Arbitraje certificados por la PUCP. Resolvemos conflictos civiles y comerciales de manera eficiente, evitando el desgaste de un juicio largo.",
     fullDescription: "Como Árbitros y Conciliadores certificados por la Pontificia Universidad Católica del Perú (PUCP), ofrecemos una alternativa superior al litigio tradicional. Entendemos que para una empresa o un particular, el tiempo es dinero.\n\nNuestra gestión se enfoca en lograr acuerdos firmes con valor de sentencia judicial (Acta de Conciliación o Laudo Arbitral). Ya sea en disputas contractuales, indemnizaciones o conflictos societarios, utilizamos técnicas de negociación avanzada para proteger sus intereses y cerrar capítulos conflictivos con seguridad jurídica inmediata.",
-    image: "/images/services/economico.png", // Using existing corporate image
+    image: "/images/services/service-arbitraje.jpg",
     expertise: [
       { term: "Conciliación PUCP", desc: "Mecanismo célere con valor de sentencia judicial." },
       { term: "Arbitraje Comercial", desc: "Justicia privada especializada para empresas." },
@@ -45,7 +45,7 @@ export const servicesData: ServiceDetail[] = [
     scenario: "Cuando el poder punitivo del Estado amenaza su libertad, necesita una defensa técnica absoluta.",
     description: "Defensa Penal de alta complejidad y garantías Constitucionales. Protegemos su libertad ante detenciones arbitrarias y procesos viciados.",
     fullDescription: "Nuestra práctica fusiona la litigación penal estratégica con la defensa de garantías constitucionales. No solo debatimos pruebas; cuestionamos la validez misma del proceso cuando se vulneran derechos fundamentales.\n\nInterponemos Hábeas Corpus, Amparos y Nulidades para corregir abusos de autoridad, detenciones ilegales o sentencias inconstitucionales. Respaldados por nuestra trayectoria en el Frente Policial y convenciones de Derecho Constitucional, somos la barrera entre usted y el abuso del poder estatal.",
-    image: "/images/services/apelaciones.png", // Using existing appeals image
+    image: "/images/services/service-penal.jpg",
     expertise: [
       { term: "Hábeas Corpus", desc: "Acción inmediata contra detenciones arbitrarias." },
       { term: "Acción de Amparo", desc: "Protección de derechos ante actos de autoridad." },
@@ -58,22 +58,22 @@ export const servicesData: ServiceDetail[] = [
     icon: Shield
   },
   {
-    id: 'asesoria-regional',
-    title: "Asesoría Tingo María y Huánuco",
-    subtitle: "Expertos en el entorno legal local.",
-    scenario: "El éxito legal requiere conocer no solo la ley, sino el terreno donde se aplica.",
-    description: "Asesoría Legal Integral con sede en Tingo María y Huánuco. Conocemos a profundidad la realidad judicial, administrativa y empresarial de la región.",
-    fullDescription: "Más de 20 años de ejercicio ininterrumpido en la región de Huánuco y Tingo María nos otorgan una ventaja estratégica única: conocemos el criterio de los juzgados locales, la dinámica de la administración pública regional y los desafíos del empresariado local.\n\nBrindamos soporte legal a empresas y ciudadanos que requieren representación en la selva central, garantizando que sus trámites, defensas y negocios fluyan sin los obstáculos que enfrentan los foráneos. Su puente legal seguro en la región.",
-    image: "/images/services/propiedad.png", // Using existing property image
+    id: 'civil-corporativo',
+    title: "Derecho Civil y Corporativo",
+    subtitle: "Protección integral de su patrimonio.",
+    scenario: "Un contrato mal redactado o una estructura legal débil pueden costarle su patrimonio. Prevéngalo con asesoría experta.",
+    description: "Asesoría experta en contratos, propiedad, obligaciones y estructura societaria. Blindamos sus intereses personales y comerciales.",
+    fullDescription: "Brindamos soluciones legales sólidas en el ámbito civil y empresarial. Desde la redacción de contratos complejos hasta la resolución de disputas patrimoniales y societarias.\n\nNos encargamos de la estructuración legal de su empresa, saneamiento de propiedades, recuperación de deudas y defensa en litigios civiles, asegurando que cada paso comercial que dé esté respaldado por la ley.",
+    image: "/images/services/service-civil-clean.jpg",
     expertise: [
-      { term: "Litigio Regional", desc: "Representación en Cortes de Huánuco y Selva Central." },
-      { term: "Trámites Municipales", desc: "Gestión ante gobiernos locales de Tingo María." },
-      { term: "Saneamiento de Tierras", desc: "Legalización de predios en zona de selva." },
-      { term: "Defensa Corporativa", desc: "Blindaje legal para empresas de la región." },
-      { term: "Recuperación de Activos", desc: "Cobranza y ejecución de garantías locales." },
-      { term: "Representación Foránea", desc: "Soporte a empresas de Lima con intereses en la región." }
+      { term: "Contratos Civiles", desc: "Redacción y revisión de acuerdos blindados." },
+      { term: "Derecho Inmobiliario", desc: "Saneamiento físico-legal de predios." },
+      { term: "Derecho Societario", desc: "Constitución y reestructuración de empresas." },
+      { term: "Obligaciones", desc: "Gestión de deudas y patrimonio." },
+      { term: "Sucesiones", desc: "Testamentos y división de herencias." },
+      { term: "Responsabilidad Civil", desc: "Indemnizaciones por daños y perjuicios." }
     ],
-    approach: "Dominio total del escenario legal local.",
+    approach: "Seguridad jurídica para su crecimiento.",
     icon: Building2
   },
   {
@@ -83,7 +83,7 @@ export const servicesData: ServiceDetail[] = [
     scenario: "En el complejo mundo empresarial, un error administrativo puede escalar a una crisis penal.",
     description: "Defensa especializada en Lavado de Activos y Delitos Tributarios. Protegemos el patrimonio de su empresa frente a investigaciones fiscales invasivas.",
     fullDescription: "En el clima regulatorio actual, una transacción inusual o un desbalance patrimonial pueden detonar investigaciones por Lavado de Activos que paralizan su negocio. Nosotros construimos un blindaje legal con peritos contables para demostrar la licitud de sus fondos y desvirtuar tesis fiscales agresivas.",
-    image: "/images/services/economico.png",
+    image: "/images/services/service-empresas.jpg",
     expertise: [
       { term: "Lavado de Activos", desc: "Justificación de incremento patrimonial." },
       { term: "Defraudación Tributaria", desc: "Defensa ante denuncias de SUNAT." },
@@ -102,7 +102,7 @@ export const servicesData: ServiceDetail[] = [
     scenario: "Cuando el servicio público se convierte en un riesgo legal, blindamos su gestión.",
     description: "Representación legal para funcionarios ante denuncias por Corrupción, Colusión y Peculado. Desactivamos denuncias políticas y defendemos su carrera.",
     fullDescription: "Servir al Estado es una actividad de alto riesgo. Defendemos la legalidad de sus actos administrativos frente a acusaciones de Colusión, Peculado o Cohecho. Analizamos expedientes de contratación para demostrar que su gestión se ajustó a derecho, protegiendo su honorabilidad y futuro.",
-    image: "/images/services/corrupcion.png",
+    image: "/images/services/service-funcionarios.jpg",
     expertise: [
       { term: "Colusión", desc: "Defensa en contrataciones con el Estado." },
       { term: "Peculado", desc: "Uso de recursos públicos." },
@@ -115,22 +115,22 @@ export const servicesData: ServiceDetail[] = [
     icon: Gavel
   },
   {
-    id: 'personas',
-    title: "Delitos Graves",
-    subtitle: "Homicidios y libertad sexual.",
-    scenario: "En los casos más críticos, la ciencia y la técnica son su única defensa.",
-    description: "Defensa experta en Homicidios, Lesiones y Delitos Sexuales. Utilizamos criminalística y pericias psicológicas para probar su verdad.",
-    fullDescription: "En acusaciones por delitos contra la vida o la libertad sexual, el estigma es inmediato. Nuestra defensa no es pasiva; es científica. Utilizamos peritos de parte, reconstrucción de hechos y contra-interrogatorios rigurosos para desmontar acusaciones falsas o sesgadas y garantizar un juicio justo.",
-    image: "/images/services/homicidios.png",
+    id: 'narcotrafico-comunes',
+    title: "Narcotráfico y Delitos Comunes",
+    subtitle: "Defensa en TID y procesos penales ordinarios.",
+    scenario: "Una acusación por drogas o delitos comunes requiere acción inmediata para evitar la prisión preventiva.",
+    description: "Especialistas en defensa por Tráfico Ilícito de Drogas (TID), Robo Agravado y delitos comunes. Estrategia inmediata para proteger su libertad.",
+    fullDescription: "El Tráfico Ilícito de Drogas (TID) y los delitos contra el patrimonio son las causas más frecuentes de prisión en el país. Nuestra defensa no juzga; actúa. Conocemos los vacíos de las intervenciones policiales, las fallas en la cadena de custodia y los requisitos para desvirtuar la prisión preventiva.\n\nAtendemos también casos de Omisión a la Asistencia Familiar, Conducción en Estado de Ebriedad y Usurpación. No deje que un error o una acusación injusta arruine su vida; tenemos la estrategia para pelear su caso.",
+    image: "/images/services/service-narcotrafico.jpg",
     expertise: [
-      { term: "Homicidio", desc: "Defensa en casos de muerte dolosa o culposa." },
-      { term: "Violación Sexual", desc: "Cuestionamiento técnico de pruebas." },
-      { term: "Feminicidio", desc: "Defensa especializada con enfoque de género." },
-      { term: "Lesiones Graves", desc: "Daños a la integridad física." },
-      { term: "Prueba de ADN", desc: "Uso de genética forense en la defensa." },
-      { term: "Cámara Gesell", desc: "Control de interrogatorios a menores." }
+      { term: "Tráfico Ilícito de Drogas", desc: "Defensa en TID, insumos y microcomercialización." },
+      { term: "Robo y Hurto", desc: "Estrategia técnica ante delitos patrimoniales." },
+      { term: "Omisión de Asistencia", desc: "Solución a procesos de alimentos." },
+      { term: "Peligro Común", desc: "Defensa en conducción en estado de ebriedad." },
+      { term: "Usurpación", desc: "Defensa en conflictos por posesión de terrenos." },
+      { term: "Beneficios Penitenciarios", desc: "Semilibertad y liberación condicional." }
     ],
-    approach: "Ciencia forense para demostrar inocencia.",
+    approach: "Defensa rápida y efectiva en casos comunes.",
     icon: Siren
   }
 ];

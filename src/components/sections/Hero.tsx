@@ -23,16 +23,20 @@ export const Hero: React.FC = () => {
   return (
     <section id={SectionId.HOME} className="relative w-full h-screen min-h-[600px] flex items-end pb-12 md:pb-24 bg-black overflow-hidden">
 
-      {/* Background Image - Cinematic & Moody */}
+      {/* Background Image - Professional & Sharp */}
       <div className="absolute inset-0 z-0">
         <img
           ref={bgRef}
-          src="/images/hero-bg-main.jpg"
-          alt="Oficina Estudio Gonzales Chumbe"
-          className="w-full h-full object-cover object-[80%_top] md:object-top opacity-100 transition-transform duration-75 ease-out will-change-transform"
+          src="/images/hero-final.jpg"
+          alt="Dr. Gonzales - Estudio Gonzales Chumbe"
+          className="w-full h-full object-cover object-center md:object-[center_20%] opacity-100 transition-transform duration-75 ease-out will-change-transform"
+          style={{
+            objectFit: 'cover',
+            objectPosition: 'center center',
+          }}
         />
         {/* General Overlay: Darkens the whole bright image for text readability */}
-        <div className="absolute inset-0 bg-black/30 mix-blend-multiply"></div>
+        <div className="absolute inset-0 bg-black/35 mix-blend-multiply"></div>
 
         {/* Navbar Protection Gradient: Strong dark fade from top for menu visibility */}
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/90 via-black/50 to-transparent z-10"></div>
