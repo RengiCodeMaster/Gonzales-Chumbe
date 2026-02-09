@@ -8,16 +8,16 @@ export default {
         extend: {
             colors: {
                 brand: {
-                    darker: '#0f172a', // Slate 900 (Deep Corporate Blue - Not "Funeral Black")
-                    dark: '#1e293b', // Slate 800 (Rich Dropdown Background)
-                    primary: '#0f172a', // Slate 900 (Serious Buttons)
-                    secondary: '#64748b', // Slate 500 (Professional Grey)
+                    darker: '#09090b', // Zinc 950 (Neutral Black - No Blue Tint)
+                    dark: '#18181b', // Zinc 900 (Neutral Carbon)
+                    primary: '#18181b', // Zinc 900 (Neutral Buttons)
+                    secondary: '#71717a', // Zinc 500 (Neutral Grey)
                     accent: '#bf9b30', // Muted Gold (Elegant Accent)
                     gold: '#bf9b30', // Unified Gold Tone
                     surface: '#ffffff',
-                    surfaceAlt: '#f8fafc', // Slate 50
+                    surfaceAlt: '#fafafa', // Zinc 50
                     card: '#ffffff',
-                    border: '#e2e8f0' // Slate 200
+                    border: '#e4e4e7' // Zinc 200
                 }
             },
             fontFamily: {
