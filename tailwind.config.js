@@ -8,16 +8,16 @@ export default {
         extend: {
             colors: {
                 brand: {
-                    darker: '#0a0a0a', // Neutral 950 (Fondo General)
-                    dark: '#171717', // Neutral 900 (Fondo Secundario)
-                    primary: '#09090b', // Black (Botones Principales / Texto Fuerte)
-                    secondary: '#57534e', // Stone 600 (Texto Secundario - Cálido)
-                    accent: '#D4AF37', // METALLIC GOLD (Acento Principal - "Vida")
-                    gold: '#C5A572', // Vegas Gold (Subtítulos / Detalles sutiles)
+                    darker: '#0f172a', // Slate 900 (Deep Corporate Blue - Not "Funeral Black")
+                    dark: '#1e293b', // Slate 800 (Rich Dropdown Background)
+                    primary: '#0f172a', // Slate 900 (Serious Buttons)
+                    secondary: '#64748b', // Slate 500 (Professional Grey)
+                    accent: '#bf9b30', // Muted Gold (Elegant Accent)
+                    gold: '#bf9b30', // Unified Gold Tone
                     surface: '#ffffff',
-                    surfaceAlt: '#fafaf9', // Stone 50 (Fondos Claros cálidos)
+                    surfaceAlt: '#f8fafc', // Slate 50
                     card: '#ffffff',
-                    border: '#e7e5e4' // Stone 200
+                    border: '#e2e8f0' // Slate 200
                 }
             },
             fontFamily: {

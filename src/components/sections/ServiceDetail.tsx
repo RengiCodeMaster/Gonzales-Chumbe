@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ArrowRight, CheckCircle2, ShieldAlert, X } from 'lucide-react';
 import { Reveal } from '../ui/Reveal';
 import { ServiceDetail as ServiceType } from '../../data/services';
@@ -14,12 +15,13 @@ export const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onClose }
 
     useEffect(() => {
         setMounted(true);
-        // Lock body scroll
-        document.body.style.overflow = 'hidden';
+        // Removed explicit body scroll lock to avoid conflicts
         return () => {
-            document.body.style.overflow = 'unset';
+            // Cleanup provided by parent state or routing
         };
     }, []);
+
+    const navigate = useNavigate();
 
     const handleClose = () => {
         setMounted(false);
@@ -27,9 +29,7 @@ export const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onClose }
     };
 
     const handleConsult = () => {
-        // Scroll immediately to Contact so it's visible as soon as modal slides away
-        document.getElementById(SectionId.CONTACT)?.scrollIntoView({ behavior: 'auto' });
-        handleClose();
+        navigate(`/contacto?service=${encodeURIComponent(service.title)}`);
     };
 
     return (

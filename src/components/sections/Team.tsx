@@ -25,7 +25,7 @@ const associates = [
 
 export const Team: React.FC = () => {
     return (
-        <section id={SectionId.TEAM} className="pt-0 pb-24 md:py-24 relative overflow-hidden">
+        <section id={SectionId.TEAM} className="pt-32 pb-24 md:py-24 relative overflow-hidden">
             <div className="container mx-auto px-6 lg:px-12 relative z-10">
 
                 {/* 0. TEAM GROUP PHOTO - HERO STYLE */}
@@ -37,7 +37,7 @@ export const Team: React.FC = () => {
                                 <img
                                     src="/images/team-new-header.png"
                                     alt="Equipo Legal Gonzales Chumbe"
-                                    className="w-[140%] max-w-none -ml-[20%] -mt-12 md:mt-0 md:w-auto md:max-w-full md:ml-auto h-auto max-h-[550px] mx-auto object-contain drop-shadow-2xl translate-y-4"
+                                    className="w-full h-auto max-h-[300px] md:max-h-[550px] mx-auto object-contain drop-shadow-2xl"
                                 />
                             </div>
 

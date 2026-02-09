@@ -1,12 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { MapPin, Phone, Mail, Briefcase, Gavel, FileText, ArrowRight, Shield, Clock, Monitor } from 'lucide-react';
 import { SectionId } from '../../types';
 import { Reveal } from '../ui/Reveal';
 import { servicesData } from '../../data/services';
+import { useSearchParams } from 'react-router-dom';
 
 export const Contact: React.FC = () => {
+    const [searchParams] = useSearchParams();
+    const serviceParam = searchParams.get('service');
+    const [activeService, setActiveService] = useState(serviceParam || "");
+
+    useEffect(() => {
+        if (serviceParam) {
+            // Force update state
+            setActiveService(serviceParam);
+
+            // Wait a brief moment for the DOM to be ready and then scroll to the form
+            setTimeout(() => {
+                const formElement = document.getElementById('contact-form-card');
+                if (formElement) {
+                    formElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }, 500);
+        }
+    }, [serviceParam]);
+
     return (
-        <section id={SectionId.CONTACT} className="relative">
+        <section id={SectionId.CONTACT} className="relative pt-20 lg:pt-24">
 
             {/* SPLIT HERO SECTION */}
             <div className="w-full lg:min-h-[700px] flex flex-col lg:flex-row shadow-xl relative z-10">
@@ -49,7 +69,7 @@ export const Contact: React.FC = () => {
 
                         {/* MODERN FORM CARD */}
                         <Reveal delay={400} direction="up">
-                            <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-8 md:p-12 overflow-hidden relative">
+                            <div id="contact-form-card" className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-8 md:p-12 overflow-hidden relative">
                                 {/* Decorative top strip */}
                                 <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-primary to-brand-dark"></div>
 
@@ -59,6 +79,8 @@ export const Contact: React.FC = () => {
                                     const name = formData.get('name') as string;
                                     const phone = formData.get('phone') as string;
                                     const email = formData.get('email') as string;
+                                    // Use activeService state instead of getting from form data directly if needed, 
+                                    // but formData.get('type') works fine with controlled components too.
                                     const type = formData.get('type') as string;
                                     const message = formData.get('message') as string;
 
@@ -106,7 +128,8 @@ export const Contact: React.FC = () => {
                                                 <select
                                                     name="type"
                                                     className="w-full bg-gray-50/50 border border-gray-200 rounded-lg px-4 py-3 text-brand-dark focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all appearance-none cursor-pointer text-sm"
-                                                    defaultValue=""
+                                                    value={activeService}
+                                                    onChange={(e) => setActiveService(e.target.value)}
                                                     required
                                                 >
                                                     <option value="" disabled>Seleccione un servicio...</option>
@@ -247,7 +270,7 @@ export const Contact: React.FC = () => {
                     <a
                         href="https://maps.google.com"
                         target="_blank"
-                        rel="noreferrer"
+                        rel="noopener noreferrer"
                         className="inline-flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md text-sm font-bold text-gray-700 hover:bg-gray-50 hover:text-brand-dark transition-colors"
                     >
                         <MapPin size={16} className="mr-2" /> Ver en Google Maps

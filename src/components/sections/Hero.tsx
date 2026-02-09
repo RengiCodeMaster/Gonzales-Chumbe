@@ -3,7 +3,10 @@ import { Button } from '../ui/Button';
 import { SectionId } from '../../types';
 import { Reveal } from '../ui/Reveal';
 
+import { useNavigate } from 'react-router-dom';
+
 export const Hero: React.FC = () => {
+  const navigate = useNavigate();
   const bgRef = React.useRef<HTMLImageElement>(null);
 
   React.useEffect(() => {
@@ -61,7 +64,7 @@ export const Hero: React.FC = () => {
               <Button
                 variant="primary"
                 className="rounded-sm px-4 py-3 md:px-8 md:py-4 w-full sm:w-auto bg-black hover:bg-neutral-900 text-white border border-transparent hover:border-white transition-all uppercase tracking-widest text-[10px] md:text-xs font-bold shadow-xl whitespace-normal text-center"
-                onClick={() => document.getElementById(SectionId.CONTACT)?.scrollIntoView({ behavior: 'auto' })}
+                onClick={() => navigate('/contacto')}
               >
                 Hable con un Abogado
               </Button>
@@ -69,7 +72,7 @@ export const Hero: React.FC = () => {
               <Button
                 variant="outline"
                 className="rounded-sm px-4 py-3 md:px-8 md:py-4 border-white text-white hover:bg-white hover:!text-black w-full sm:w-auto uppercase tracking-widest text-[10px] md:text-xs font-bold !bg-transparent hover:!bg-white whitespace-normal text-center"
-                onClick={() => document.getElementById(SectionId.ABOUT)?.scrollIntoView({ behavior: 'auto' })}
+                onClick={() => navigate('/nosotros')}
               >
                 Conozca el Estudio
               </Button>

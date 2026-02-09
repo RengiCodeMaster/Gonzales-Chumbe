@@ -3,11 +3,16 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background-color: #ffffff;
     color: #18181b;
     /* Zinc 900 */
     overflow-x: hidden;
+    /* Removed forced overrides as PageLoader now handles unlocking cleanly */
   }
 
   /* Headings Base Styles */

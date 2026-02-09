@@ -10,7 +10,8 @@ interface ServicesProps {
 }
 
 export const Services: React.FC<ServicesProps> = ({ onOpenService }) => {
-    const [activeTab, setActiveTab] = useState<ServiceDetail>(servicesData[0]);
+    // activeTab state removed as it was unused
+
 
     const handleOpenDetail = (serviceId: string) => {
         if (onOpenService) {
